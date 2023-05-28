@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+
 public interface IInteractable
 {
     public void OnClick()
@@ -8,5 +10,9 @@ public interface IInteractable
 }
 public interface IStudentProcess
 {
+    public void ProcessStart();
+    public void ProcessComplete()
+    {
 
+    }
 }

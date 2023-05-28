@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.Plastic.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class RadialProgressBar : MonoBehaviour
@@ -12,6 +14,9 @@ public class RadialProgressBar : MonoBehaviour
     private Material material;
     private Coroutine fillCoroutine;
 
+    public static event Action<Student> OnProgressComplete;
+    internal Student student;
+
     private void Awake()
     {
         if (renderer != null)
@@ -23,9 +28,8 @@ public class RadialProgressBar : MonoBehaviour
     }
     private void OnEnable()
     {
-        SetFillAmount(1);
+        SetFillAmount(1);        
     }
-
     public void SetFillAmount(float fillAmount)
     {
         fillAmount = Mathf.Clamp(fillAmount, minFillAmount, maxFillAmount);
@@ -37,7 +41,6 @@ public class RadialProgressBar : MonoBehaviour
 
         fillCoroutine = StartCoroutine(TransitionFillAmount(fillAmount, transitionDuration));
     }
-
     private IEnumerator TransitionFillAmount(float targetFillAmount, float duration)
     {
         float initialFillAmount = material.GetFloat(fillAmountPropertyName);
@@ -51,8 +54,8 @@ public class RadialProgressBar : MonoBehaviour
             material.SetFloat(fillAmountPropertyName, currentFillAmount);
             yield return null;
         }
-
         material.SetFloat(fillAmountPropertyName, targetFillAmount);
         fillCoroutine = null;
+        OnProgressComplete?.Invoke(student);
     }
 }

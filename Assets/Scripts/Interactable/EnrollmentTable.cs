@@ -2,25 +2,34 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public class EnrollmentTable : MonoBehaviour
+public class EnrollmentTable : MonoBehaviour, IStudentProcess
 {
     [SerializeField] BoxCollider boxCollider;
-    [SerializeField] Student student;
+    [SerializeField] Student currentStudent;
     [SerializeField] Transform studentStandingPoint;
+    [SerializeField] RadialProgressBar progressBar;
     public UnityEvent OnStartEnrollment;
+    public UnityEvent OnEnrollmentComplete;
+
     private void OnMouseEnter()
     {
-        student = Actions.OnResetStudentSelection?.Invoke(student);
-        if (student == null)
+        ProcessStart();
+    }
+    public void ProcessStart()
+    {
+        currentStudent = Actions.OnResetStudentSelection?.Invoke(currentStudent);
+        if (currentStudent == null)
             return;
         Actions.OnEnrollmentTable?.Invoke(this);
         OnStartEnrollment?.Invoke();
-        student.transform.parent = studentStandingPoint;
-        student.transform.DOLocalMove(Vector3.zero, 0.3f);
+        currentStudent.transform.parent = studentStandingPoint;
+        currentStudent.transform.DOLocalMove(Vector3.zero, 0.3f);
         boxCollider.enabled = false;
+        progressBar.gameObject.SetActive(true);
+        progressBar.student = currentStudent;
     }
-    private void OnMouseUp()
+    public void ProcessComplete()
     {
-
+        
     }
 }

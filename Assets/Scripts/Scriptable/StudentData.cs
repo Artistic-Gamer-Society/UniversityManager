@@ -7,10 +7,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StudentData", menuName = "ScriptableObjects/StudentData", order = 1)]
 public class StudentData : ScriptableObject
 {
-    public List<MaterialProperties> material;
-    public Material studentMaterial;
-    public void UpdateStudentSkin(StudentPhase studentPhase)
+    [SerializeField] List<MaterialProperties> material;
+    [SerializeField] Material studentMaterial;
+    public void UpdateStudentSkin(StudentPhase studentPhase, Student student)
     {
+        student.meshRenderer.material = studentMaterial;
         switch (studentPhase)
         {
             case (StudentPhase.Enrollment):
@@ -24,9 +25,11 @@ public class StudentData : ScriptableObject
                 break;
         }
     }
-    public void EnableOutline()
+    public void SetOutline(int value, Student student)
     {
-        studentMaterial.SetFloat("_OutlineSize", 60);
+        student.meshRenderer.sharedMaterial = studentMaterial;
+        studentMaterial = student.meshRenderer.sharedMaterial;
+        studentMaterial.SetFloat("_OutlineSize", value);
     }
     [Serializable]
     public struct MaterialProperties
