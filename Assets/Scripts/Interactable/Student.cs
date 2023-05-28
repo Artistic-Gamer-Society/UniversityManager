@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 /// <summary>
@@ -5,10 +6,9 @@ using UnityEngine;
 /// </summary>
 public enum StudentPhase
 {
-    None = 0,
-    Enrollment = 1,
-    Examination = 2,
-    Passout = 3
+    Enrollment = 0,
+    Examination = 1,
+    Passout = 2
 }
 public class Student : MonoBehaviour, IInteractable
 {
@@ -20,8 +20,12 @@ public class Student : MonoBehaviour, IInteractable
 
     [SerializeField]
     StudentData data;
+
+    internal Vector3 startPos;
+    bool isReadyToChangePhase;
     private void Awake()
-    {        
+    {
+        startPos = transform.localPosition;
         data.SetOutline(0, this);
     }
     private void OnEnable()
@@ -40,9 +44,16 @@ public class Student : MonoBehaviour, IInteractable
     /// </summary>
     private void OnMouseDown()
     {
-        Actions.OnStudentSelection?.Invoke(this);
-        capsuleCollider.enabled = false;
-        gameObject.transform.parent = null;
+        if (isReadyToChangePhase)
+        {
+            transform.parent = null;
+            transform.MoveTowardsUI(UIManager.GetInstance().roomButton.doorWorldTransform, 2);
+        }
+        else
+        {
+            Actions.OnStudentSelection?.Invoke(this);
+            capsuleCollider.enabled = false;
+        }
     }
     private void OnMouseUp()
     {
@@ -50,6 +61,28 @@ public class Student : MonoBehaviour, IInteractable
     }
     private void MakeReadyForNextPhase(Student obj)
     {
-        data.SetOutline(60, this);
+        if (obj == this)
+        {
+            data.SetOutline(60, this);
+            capsuleCollider.enabled = true;
+            isReadyToChangePhase = true;
+            //data.UpdateStudentSkin(GetNextPhase(), obj);
+        }
+    }
+    StudentPhase GetNextPhase()
+    {
+        int _phase = (int)phase;
+        _phase++;
+
+        return (StudentPhase)_phase;
+    }
+    void MoveToNextRoom()
+    {
+
+    }
+    public void ResetStudentDefaultState()
+    {
+        transform.localPosition = startPos;
+        capsuleCollider.enabled = true;
     }
 }

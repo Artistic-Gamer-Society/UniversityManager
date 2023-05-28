@@ -14,12 +14,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
-        Actions.OnResetStudentSelection += ResetSelectedStudent;
+        Actions.OnStudentProcessing += ResetSelectedStudent;
     }
     private void OnDisable()
     {
         Actions.OnStudentSelection -= SetSelectedStudent;
-        Actions.OnResetStudentSelection -= ResetSelectedStudent;
+        Actions.OnStudentProcessing -= ResetSelectedStudent;
     }
     private void Update()
     {
@@ -33,6 +33,11 @@ public class InputManager : MonoBehaviour
                 }
                 var currentPos = selectedStudent.transform.position;
                 MoveObjectToMousePosition(currentPos, refVel, gameConfig.movementSmoothing);
+            }
+            else if (Input.GetMouseButtonUp(0) && selectedStudent != null)
+            {
+                selectedStudent.ResetStudentDefaultState();
+                selectedStudent = null;
             }
         }
     }
@@ -63,18 +68,19 @@ public class InputManager : MonoBehaviour
     }
     void MoveObjectToMousePosition(Vector3 currentPos, Vector3 refVel, float smoothTime)
     {
-        Vector3 targetPos = GetTargetPos();  
+        Vector3 targetPos = GetTargetPos();
         currentPos = Vector3.SmoothDamp(currentPos, targetPos, ref refVel, smoothTime);
         selectedStudent.transform.position = currentPos;
     }
     private void SetSelectedStudent(Student obj)
     {
         selectedStudent = obj;
+        GameManager.Instance.currentSelectedStudent = obj;
     }
     private Student ResetSelectedStudent(Student student)
     {
         student = selectedStudent;
         selectedStudent = null;
         return student;
-    }    
+    }
 }

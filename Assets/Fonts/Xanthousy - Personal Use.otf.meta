@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f34f2b02783f41e4299c4551981ac1c6
+guid: d45f1e02edeab6f48b47a1795d73d9dc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Mighty Brush
+  - Xanthousy - Personal Use
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -43,7 +43,7 @@ public class Currency : MonoBehaviour
 
     private void UpdateMoneyText()
     {
-        moneyText.text = "Money: " + playerMoney.ToString();
+        moneyText.text = "$" + playerMoney.ToString();
     }
 
     private System.Collections.IEnumerator UpdateMoneyTextSmoothly(int startValue, int endValue, float duration = 1f)

@@ -30,6 +30,10 @@ public class RadialProgressBar : MonoBehaviour
     {
         SetFillAmount(1);        
     }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
     public void SetFillAmount(float fillAmount)
     {
         fillAmount = Mathf.Clamp(fillAmount, minFillAmount, maxFillAmount);
@@ -57,5 +61,6 @@ public class RadialProgressBar : MonoBehaviour
         material.SetFloat(fillAmountPropertyName, targetFillAmount);
         fillCoroutine = null;
         OnProgressComplete?.Invoke(student);
+        gameObject.SetActive(false);
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 
 public class GameManager
 {
@@ -15,11 +16,20 @@ public class GameManager
         }
     }
     internal bool isPlay = true;
+    internal RoomType roomType = RoomType.Enrollment;
+    internal Student currentSelectedStudent;
+}
+public enum RoomType
+{
+    Enrollment,
+    Examination,
+    Ceremony
 }
 public static class Actions
 {
     public static Action<Student> OnStudentSelection;
-    public static Action<EnrollmentTable> OnEnrollmentTable;
-    public static Func<Student, Student> OnResetStudentSelection;
+    public static Action<Student> OnStudentSelectionCancel;
+    public static Action<Student> OnEnrollmentTable;
+    public static Func<Student, Student> OnStudentProcessing;
 }
 

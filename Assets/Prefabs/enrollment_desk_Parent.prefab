@@ -25,12 +25,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807464017219805626}
   m_LocalRotation: {x: -0.02786034, y: 0, z: -0, w: 0.9996118}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.38, z: 0.08}
+  m_LocalScale: {x: 0.53471553, y: 0.53471553, z: 0.53471553}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8807464018845030592}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8807464017219805625
 SpriteRenderer:
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: dab9fb85824f5cc41a26f93c45dff36d, type: 3}
-  m_Color: {r: 0.5377358, g: 0.52961904, b: 0.52961904, a: 0.5254902}
+  m_Color: {r: 0.5377358, g: 0.52961904, b: 0.52961904, a: 0.3764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,18 +109,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807464017494373217}
-  m_LocalRotation: {x: -0.38146988, y: -0, z: -0, w: 0.9243813}
-  m_LocalPosition: {x: 0, y: 0, z: -0.92}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 0.53839177, y: 0.5383918, z: 0.5383918}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8807464018845030592}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -44.85, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.06}
-  m_SizeDelta: {x: 20, y: 5}
+  m_AnchoredPosition: {x: -0, y: -0.73}
+  m_SizeDelta: {x: 3.8454, y: 4.0498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8807464017494373222
 MeshRenderer:
@@ -195,8 +195,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278217471
-  m_fontColor: {r: 1, g: 0.4168234, b: 0, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_fontSizeBase: 23.65
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 9
   m_fontSizeMax: 18
   m_fontStyle: 1
   m_HorizontalAlignment: 2
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.004409075, y: 0, z: -0.035642624, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -375,6 +375,9 @@ MonoBehaviour:
   OnStartEnrollment:
     m_PersistentCalls:
       m_Calls: []
+  OnEnrollmentComplete:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8807464017780812426
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,14 +434,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807464017898653745}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.06, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1.343, z: 0.442}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8807464018703250201}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!212 &8807464017898653744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -574,8 +577,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8807464017219805624}
   - {fileID: 8807464017494373216}
+  - {fileID: 8807464017219805624}
   m_Father: {fileID: 8807464018703250201}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -621,7 +624,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a40909543a92f234399ecd9f72def59d, type: 3}
-  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0.59607846}
+  m_Color: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0.21960784}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
