@@ -6,7 +6,9 @@ using UnityEngine;
 [DefaultExecutionOrder(9)]
 public class StudentLineManager : MonoBehaviour
 {
-    public Vector3 startingPoint;
+    [SerializeField]
+    Transform startPoint;
+    private Vector3 startingPoint;
     public float spacing;
     public Axis axis;
     public float rearrangeDuration = 1f;
@@ -14,9 +16,14 @@ public class StudentLineManager : MonoBehaviour
     public List<Student> students = new List<Student>();
     public UniversityPhase phase;
 
+    /// <summary>
+    /// Walk
+    /// </summary>
     public static event Action<Student> OnStartRearrangeing;
+    /// <summary>
+    /// StopWalk
+    /// </summary>
     public static event Action<Student> OnCompleteRearranging;
-
     public enum Axis
     {
         X,
@@ -24,13 +31,19 @@ public class StudentLineManager : MonoBehaviour
         Z
     }
 
+    private void Awake()
+    {
+        startingPoint = startPoint.localPosition;
+    }
     private void OnEnable()
     {
         RearrangeStudents();
+        Table.OnSelectingDesk += RemoveStudent;
         EnrollmentTable.OnSelectingDesk += RemoveStudent;
     }
     private void OnDestroy()
     {
+        Table.OnSelectingDesk -= RemoveStudent;
         EnrollmentTable.OnSelectingDesk -= RemoveStudent;
     }
     public void AddStudent(Student student)
@@ -44,7 +57,12 @@ public class StudentLineManager : MonoBehaviour
     {
         students.Remove(student);
         student.transform.SetParent(null); // Remove student object from the StudentLineManager's children
-        RearrangeStudents();
+        student.StopRearranging();
+        DOVirtual.DelayedCall(0.5f, () =>
+        {
+            RearrangeStudents();
+        });
+
     }
     private void RearrangeStudents()
     {
@@ -52,15 +70,23 @@ public class StudentLineManager : MonoBehaviour
         {
             Vector3 targetPosition = GetStudentLocalPosition(i);
             OnStartRearrangeing?.Invoke(students[i]);
-            students[i].transform.DOLocalMove(targetPosition, rearrangeDuration).
-                    SetEase(Ease.Linear).OnComplete(() =>
-                    {
-                        for (int i = 0; i < students.Count; i++)
-                        {
-                            OnCompleteRearranging?.Invoke(students[i]);
-                        }
-                    });
-            students[i].startPos = targetPosition;
+            if (students[i].isReadyToChangePhase == false)
+            {
+                students[i].StartRearranging(targetPosition, rearrangeDuration);
+                students[i].startPos = targetPosition;
+            }
+            else
+            {
+                var pos = students[i].transform.localPosition;
+                Vector3[] positions = new Vector3[]
+                {
+                    new Vector3(pos.x, -5, -15),
+                    new Vector3(targetPosition.x, targetPosition.y, -15),
+                    targetPosition,
+                };
+                students[i].SwitchLineAnimation(positions, 2, students[i]);
+                students[i].startPos = targetPosition;
+            }
         }
     }
     private Vector3 GetStudentLocalPosition(int index)

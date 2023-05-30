@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8807464017633803491
 Transform:
   m_ObjectHideFlags: 0
@@ -456,7 +456,7 @@ MonoBehaviour:
   currentStudent: {fileID: 0}
   studentStandingPoint: {fileID: 8807464017780812425}
   progressBar: {fileID: 8807464017898653750}
-  OnStartEnrollment:
+  OnSelect:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &8807464017780812426

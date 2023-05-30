@@ -16,4 +16,5 @@ MonoBehaviour:
   - albedoColor: {r: 0, g: 0.8745099, b: 0.96470594, a: 1}
   - albedoColor: {r: 0.9647059, g: 0.42456773, b: 0, a: 1}
   - albedoColor: {r: 0.12039607, g: 0.9647059, b: 0, a: 1}
-  studentMaterial: {fileID: 2100000, guid: 163acd19648ed3a4abba3f9d570e2d3a, type: 2}
+  studentSpeed: 4
+  studentSpeedTowardsDoor: 2

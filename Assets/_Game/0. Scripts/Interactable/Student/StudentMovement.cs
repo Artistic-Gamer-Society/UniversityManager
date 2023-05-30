@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,28 +17,43 @@ public class StudentMovement : MonoBehaviour
     }
     private void OnEnable()
     {
+        Table.OnSelectingDesk += MoveToDestination;
         EnrollmentTable.OnSelectingDesk += MoveToDestination;
+        DestinationManager.OnReachingDestination += OnReachingDestinationPoint;
     }
     private void OnDisable()
     {
+        Table.OnSelectingDesk -= MoveToDestination;
         EnrollmentTable.OnSelectingDesk -= MoveToDestination;
+        DestinationManager.OnReachingDestination -= OnReachingDestinationPoint;
     }
 
     public void MoveToDestination(Student student, Vector3 destination)
     {
-        enabled = true;
-        navMeshAgent.enabled = true;
         student.movement.navMeshAgent.SetDestination(destination);
         student.transform.LookAt(destination);
+        enabled = true;
+        navMeshAgent.enabled = true;
     }
     public void OnReachingDestinationPoint(Student student)
     {
         if (student.movement == this)
         {
-            enabled = false;
-            navMeshAgent.enabled = false;
-
-            OnReachingDesk?.Invoke(student);
+            switch (student.phase)
+            {
+                case UniversityPhase.Enrollment:
+                    OnReachingDesk?.Invoke(student);
+                    Debug.Log("Phase: is" + student.phase, student.gameObject);
+                    break;
+                case UniversityPhase.Examination:
+                    Debug.Log("Phase: is" + student.phase, student.gameObject);
+                    break;
+                case UniversityPhase.Ceremony:
+                    Debug.Log("Phase: is" + student.phase, student.gameObject);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

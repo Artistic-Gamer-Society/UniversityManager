@@ -1,11 +1,12 @@
-using UnityEngine;
 using DG.Tweening;
-using UnityEngine.Events;
-using UnityEngine.AI;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
-public class EnrollmentTable : Table
-{    
+public class ExamTable : Table
+{
     private void OnMouseDown()
     {
         base.OnSelectTable();
@@ -18,4 +19,5 @@ public class EnrollmentTable : Table
     {
         StudentMovement.OnReachingDesk -= base.StartProcess;
     }
+ 
 }

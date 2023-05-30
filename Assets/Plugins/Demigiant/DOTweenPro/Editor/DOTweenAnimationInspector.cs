@@ -169,10 +169,10 @@ namespace DG.DOTweenEditor
             "OTHER", "Will animate components on the given gameObject instead than on this one"
         );
         static readonly GUIContent _GuiC_tweenTargetIsTargetGO_true = new GUIContent(
-            "Use As Tween Target", "Will set the tween target (via SetTarget, used to control a tween directly from a target) to the \"OTHER\" gameObject"
+            "Use As Tween Target", "Will set the RearrangeAnimation target (via SetTarget, used to control a RearrangeAnimation directly from a target) to the \"OTHER\" gameObject"
         );
         static readonly GUIContent _GuiC_tweenTargetIsTargetGO_false = new GUIContent(
-            "Use As Tween Target", "Will set the tween target (via SetTarget, used to control a tween directly from a target) to the gameObject containing this animation, not the \"OTHER\" one"
+            "Use As Tween Target", "Will set the RearrangeAnimation target (via SetTarget, used to control a RearrangeAnimation directly from a target) to the gameObject containing this animation, not the \"OTHER\" one"
         );
 
         #region MonoBehaviour Methods
@@ -336,8 +336,8 @@ namespace DG.DOTweenEditor
 //                _src.animationType = (DOTweenAnimation.AnimationType)EditorGUILayout.EnumPopup(_src.animationType, EditorGUIUtils.popupButton);
                 GUI.enabled = GUI.enabled && _src.isActive;
                 _src.animationType = AnimationToDOTweenAnimationType(_AnimationType[EditorGUILayout.Popup(DOTweenAnimationTypeToPopupId(_src.animationType), _AnimationType)]);
-                _src.autoPlay = DeGUILayout.ToggleButton(_src.autoPlay, new GUIContent("AutoPlay", "If selected, the tween will play automatically"));
-                _src.autoKill = DeGUILayout.ToggleButton(_src.autoKill, new GUIContent("AutoKill", "If selected, the tween will be killed when it completes, and won't be reusable"));
+                _src.autoPlay = DeGUILayout.ToggleButton(_src.autoPlay, new GUIContent("AutoPlay", "If selected, the RearrangeAnimation will play automatically"));
+                _src.autoKill = DeGUILayout.ToggleButton(_src.autoKill, new GUIContent("AutoKill", "If selected, the RearrangeAnimation will be killed when it completes, and won't be reusable"));
                 GUILayout.EndHorizontal();
                 if (prevAnimType != _src.animationType) {
                     // Set default optional values based on animation type
@@ -681,7 +681,7 @@ namespace DG.DOTweenEditor
             GUILayout.EndHorizontal();
 #if true // UI_MARKER
             if (_src.useTargetAsV3 && _src.endValueTransform != null && _src.target is RectTransform) {
-                EditorGUILayout.HelpBox("NOTE: when using a UI target, the tween will be created during Start instead of Awake", MessageType.Info);
+                EditorGUILayout.HelpBox("NOTE: when using a UI target, the RearrangeAnimation will be created during Start instead of Awake", MessageType.Info);
             }
 #endif
         }

@@ -186,7 +186,7 @@ namespace DG.DOTweenEditor
                 break;
             }
             if (tInfo == null) {
-                Debug.LogWarning("DOTween Preview ► Couldn't find tween to stop");
+                Debug.LogWarning("DOTween Preview ► Couldn't find RearrangeAnimation to stop");
                 return;
             }
             if (tInfo.isFrom) {

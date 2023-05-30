@@ -12,15 +12,15 @@ public class SelectionManager : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
-        Actions.GetStudentAtTable += GetSelectedStudent;
     }
     private void OnDisable()
     {
         Actions.OnStudentSelection -= SetSelectedStudent;
-        Actions.GetStudentAtTable -= GetSelectedStudent;
     }
     private void SetSelectedStudent(Student obj)
     {
+        if (obj.isReadyToChangePhase)
+            return;
         var previous = selectedStudent;
         if (previous != null)
         {
@@ -28,18 +28,9 @@ public class SelectionManager : MonoBehaviour
             previous.ResetStudentDefaultState();
         }
         selectedStudent = obj;
+        selectedStudent.movement.enabled = true;
+        selectedStudent.movement.navMeshAgent.enabled = true;
         StudentData.SetOutline(60, selectedStudent);
-    }
-    /// <summary>
-    /// It sets student at table and remove the selection  
-    /// </summary>
-    /// <param name="student"></param>
-    /// <returns></returns>
-    public Student GetSelectedStudent(Student student)
-    {
-        student = selectedStudent;
-        selectedStudent = null;
-        return student;
     }
 }
 #region Commented

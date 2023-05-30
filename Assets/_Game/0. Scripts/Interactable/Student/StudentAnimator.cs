@@ -9,38 +9,40 @@ public class StudentAnimator : MonoBehaviour
 
     private void OnEnable()
     {
-        EnrollmentTable.OnSelectingDesk += OnSelectingDesk;
-        StudentMovement.OnReachingDesk += OnReachingDesk;
-        StudentLineManager.OnStartRearrangeing += OnStartRearranging;
-        StudentLineManager.OnCompleteRearranging += OnCompleteRearranging;
+        Table.OnSelectingDesk += OnSelectingDeskWalk;
+        EnrollmentTable.OnSelectingDesk += OnSelectingDeskWalk;
+        StudentMovement.OnReachingDesk += OnReachingDeskStopWalk;
+        StudentLineManager.OnStartRearrangeing += OnStartRearrangingWalk;
+        StudentLineManager.OnCompleteRearranging += OnCompleteRearrangingStopWalk;
     }
 
 
     private void OnDisable()
     {
-        EnrollmentTable.OnSelectingDesk -= OnSelectingDesk;
-        StudentMovement.OnReachingDesk -= OnReachingDesk;
-        StudentLineManager.OnStartRearrangeing -= OnStartRearranging;
-        StudentLineManager.OnCompleteRearranging -= OnCompleteRearranging;
+        Table.OnSelectingDesk -= OnSelectingDeskWalk;
+        EnrollmentTable.OnSelectingDesk -= OnSelectingDeskWalk;
+        StudentMovement.OnReachingDesk -= OnReachingDeskStopWalk;
+        StudentLineManager.OnStartRearrangeing -= OnStartRearrangingWalk;
+        StudentLineManager.OnCompleteRearranging -= OnCompleteRearrangingStopWalk;
     }
-    private void OnReachingDesk(Student student)
+    private void OnReachingDeskStopWalk(Student student)
     {
         if (student.animator == this)
             StopWalking();
     }
 
-    private void OnSelectingDesk(Student student, Vector3 arg2)
+    private void OnSelectingDeskWalk(Student student, Vector3 arg2)
     {
         if (student.animator == this)
             Walk();
     }
-    private void OnCompleteRearranging(Student student)
+    private void OnCompleteRearrangingStopWalk(Student student)
     {
         if (student.animator == this)
             StopWalking();
     }
 
-    private void OnStartRearranging(Student student)
+    private void OnStartRearrangingWalk(Student student)
     {
         if (student.animator == this)
             Walk();
@@ -56,6 +58,13 @@ public class StudentAnimator : MonoBehaviour
         // Stop walk animation
         animator.SetBool("isRunning", false);
     }
-
+    public void ResetPosition()
+    {
+        transform.localPosition = Vector3.up * transform.localPosition.y;
+    }
+    public void ResetRotaion()
+    {
+        transform.localRotation = Quaternion.identity;
+    }
     // Other animation methods
 }

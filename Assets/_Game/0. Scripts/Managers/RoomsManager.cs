@@ -11,16 +11,16 @@ public class RoomsManager : MonoBehaviour
 
     private void OnEnable()
     {
-        Student.OnPhaseChanged += RemoveStudent;
+        DestinationManager.OnReachingNextPhase += RemoveStudent;
     }
     private void OnDisable()
     {
-        Student.OnPhaseChanged -= RemoveStudent;
+        DestinationManager.OnReachingNextPhase -= RemoveStudent;
 
     }
     private void Start()
     {
-        foreach(var st in enrollmentLineManager.students)
+        foreach (var st in enrollmentLineManager.students)
         {
             studentLineDictionary.Add(st, enrollmentLineManager);
         }
@@ -35,7 +35,6 @@ public class RoomsManager : MonoBehaviour
     {
         if (studentLineDictionary.ContainsKey(student))
         {
-            print("ok");
             StudentLineManager currentLineManager = studentLineDictionary[student];
             currentLineManager.RemoveStudent(student, Vector3.zero);
 
