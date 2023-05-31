@@ -52,6 +52,7 @@ public class Student : MonoBehaviour
         movement.navMeshAgent.speed = data.studentSpeed;
         if (isReadyToChangePhase)
         {
+            movement.navMeshAgent.enabled = true;
             transform.parent = null;
             animator.Walk();
             movement.MoveToDestination(this, doorPos);
@@ -59,7 +60,7 @@ public class Student : MonoBehaviour
             table.boxCollider.enabled = true;
             if (phase == UniversityPhase.Enrollment)
             {
-                Actions.OnStudentCeremony?.Invoke(this,100);
+                Actions.OnStudentCeremony?.Invoke(this, 100);
             }
         }
     }
@@ -72,6 +73,7 @@ public class Student : MonoBehaviour
             isReadyToChangePhase = true;
             data.UpdateStudentSkin(GetNextPhase(), obj);
             phase = GetNextPhase();
+            obj.transform.DOLocalRotate(Vector3.zero,0.2f);
         }
     }
     UniversityPhase GetNextPhase()
@@ -121,11 +123,11 @@ public class Student : MonoBehaviour
     }
     private Tween SwtichLineAnimation;
 
-   [SerializeField] bool isSwitchingLine;
+    [SerializeField] bool isSwitchingLine;
     public void SwitchLineAnimation(Vector3[] pathPoints, float duration, Student st)
     {
         // Stop the previous tween if it exists
-        isSwitchingLine = true;       
+        isSwitchingLine = true;
         if (isSwitchingLine)
         {
 

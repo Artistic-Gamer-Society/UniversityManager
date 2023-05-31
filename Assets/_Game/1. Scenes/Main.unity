@@ -141,6 +141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_2  '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -355,6 +359,28 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &75310186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1670234592}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &116356222 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 747521339}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118123471
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +422,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 18612268}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &170586274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 513244387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &185963015
 GameObject:
   m_ObjectHideFlags: 0
@@ -735,6 +772,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464017780812425, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 948129349}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &340332577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1581845821}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &343241477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,6 +1137,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7410165800962390486, guid: bbdde1bf89726e54cad1b41a053d5197, type: 3}
   m_PrefabInstance: {fileID: 352018443}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &372278380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 443953129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &377332401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1477,6 +1536,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7410165800962390486, guid: bbdde1bf89726e54cad1b41a053d5197, type: 3}
   m_PrefabInstance: {fileID: 423547884}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &442833241 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 590110498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &443953129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1484,6 +1554,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_3 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1541,6 +1615,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_8 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1596,6 +1674,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 513244387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &516940627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 18612268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &524273007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1791,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &548198248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 2053174836}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &552792816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8807464017633803500, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
@@ -1727,68 +1827,17 @@ MonoBehaviour:
   boxCollider: {fileID: 552792818}
   studentStandingPoint: {fileID: 336282243}
   progressBar: {fileID: 2521867}
---- !u!1001 &554205702
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1130157672}
-    m_Modifications:
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8807464018703250202, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-      propertyPath: m_Name
-      value: enrollment_desk_Parent
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
---- !u!4 &554205703 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
-  m_PrefabInstance: {fileID: 554205702}
+--- !u!114 &559792468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 960113468}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &590110498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1796,6 +1845,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_1  '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1890,7 +1943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 540ac08baa0ab064bbddc3cbf86baa77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMoney: 0
+  playerMoney: 200
   moneyText: {fileID: 883468795}
 --- !u!1001 &602386363
 PrefabInstance:
@@ -1899,6 +1952,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_8 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -2030,6 +2087,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_7 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2297,6 +2358,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_0 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464017633803490, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -2433,6 +2498,17 @@ MonoBehaviour:
   enrollmentLineManager: {fileID: 309981144}
   examinationLineManager: {fileID: 1832635363}
   ceremonyLineManager: {fileID: 1469305880}
+--- !u!114 &780356747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1545867589}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &785911893
 GameObject:
   m_ObjectHideFlags: 0
@@ -3277,6 +3353,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_0 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464017633803490, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -3399,6 +3479,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_6 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3756,6 +3840,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7410165800962390486, guid: bbdde1bf89726e54cad1b41a053d5197, type: 3}
   m_PrefabInstance: {fileID: 999649708}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1030393500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1679814102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1056702157
 GameObject:
   m_ObjectHideFlags: 0
@@ -4692,6 +4787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1130157672}
   - component: {fileID: 1130157673}
+  - component: {fileID: 1130157674}
   m_Layer: 0
   m_Name: EnrollmentDesks (1)
   m_TagString: Untagged
@@ -4713,7 +4809,6 @@ Transform:
   m_Children:
   - {fileID: 747521340}
   - {fileID: 1545867590}
-  - {fileID: 554205703}
   - {fileID: 1224946642}
   - {fileID: 1605762560}
   - {fileID: 2053174837}
@@ -4740,6 +4835,29 @@ MonoBehaviour:
   rows: 5
   columns: 2
   spacing: 3
+--- !u!114 &1130157674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130157671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635da3ecd12dc48469da78ccde52d6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockableItems:
+  - {fileID: 116356222}
+  - {fileID: 780356747}
+  - {fileID: 0}
+  - {fileID: 1984944846}
+  - {fileID: 1462084414}
+  - {fileID: 548198248}
+  - {fileID: 559792468}
+  - {fileID: 340332577}
+  - {fileID: 170586274}
+  - {fileID: 75310186}
 --- !u!4 &1163317389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
@@ -5158,6 +5276,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_3 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5355,6 +5477,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_9 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5412,6 +5538,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_5 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -5829,6 +5959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1352783531}
   - component: {fileID: 1352783532}
+  - component: {fileID: 1352783533}
   m_Layer: 0
   m_Name: EnrollmentDesks
   m_TagString: Untagged
@@ -5877,6 +6008,40 @@ MonoBehaviour:
   rows: 5
   columns: 2
   spacing: 3
+--- !u!114 &1352783533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352783530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635da3ecd12dc48469da78ccde52d6d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockableItems:
+  - {fileID: 1856217846}
+  - {fileID: 442833241}
+  - {fileID: 516940627}
+  - {fileID: 372278380}
+  - {fileID: 1367722844}
+  - {fileID: 1629212227}
+  - {fileID: 1030393500}
+  - {fileID: 1874468303}
+  - {fileID: 2129805568}
+  - {fileID: 2043668128}
+--- !u!114 &1367722844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1392060851}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1368016513
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,6 +6157,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_4 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6042,6 +6211,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+--- !u!114 &1462084414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1605762559}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1465075287
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6305,6 +6485,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_1 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6433,6 +6617,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_7 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7374,6 +7562,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_4 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -7429,6 +7621,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 1605762559}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1629212227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1291701728}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1634053932
 GameObject:
   m_ObjectHideFlags: 0
@@ -7766,6 +7969,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks (1)_9 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -7828,6 +8035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1352783531}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: 'EnrollmentDesks_6 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -8472,7 +8683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849837158}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.1, y: 0, z: -2.85}
+  m_LocalPosition: {x: -20.1, y: 0, z: 0.19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8484,6 +8695,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 1262251715}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856217846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 948129349}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1874468303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 622701406}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1886416615
 GameObject:
   m_ObjectHideFlags: 0
@@ -9056,6 +9289,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1984944846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1224946641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017200347
 GameObject:
   m_ObjectHideFlags: 0
@@ -9191,6 +9435,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017200347}
   m_CullTransparentMesh: 1
+--- !u!114 &2043668128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 1262251715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2053174836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9198,6 +9453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1130157672}
     m_Modifications:
+    - target: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+      propertyPath: itemKey
+      value: EnrollmentDesks (1)_5
+      objectReference: {fileID: 0}
     - target: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -9766,6 +10025,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807464018703250201, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
   m_PrefabInstance: {fileID: 1291701728}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2129805568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5389302535157663540, guid: e88a68ff4900f9c42a605e1f0f55d4ba, type: 3}
+  m_PrefabInstance: {fileID: 602386363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 213dd8dba260f294380ddb3d1fa81623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2136219365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9928,6 +10198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCost: 100
   costText: {fileID: 8807464018258116763}
+  itemKey: EnrollmentDesks_0
   itemToUnlock: {fileID: 8807464018414325520}
 --- !u!1001 &7410165801656906027
 PrefabInstance:
@@ -10203,14 +10474,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8807464018007169398}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.94, z: -1.29}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 1.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8807464017318723813}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &8807464018007169398
 GameObject:
   m_ObjectHideFlags: 0

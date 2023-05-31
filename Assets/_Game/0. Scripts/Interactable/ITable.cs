@@ -36,12 +36,17 @@ public abstract class Table : MonoBehaviour
         {
             if (student == currentStudent)
             {
-                student.transform.DOLocalMove(Vector3.zero, 0.5f);
-                student.table = this;
+                student.movement.navMeshAgent.enabled = false;
                 progressBar.gameObject.SetActive(true);
-                currentStudent.transform.parent = studentStandingPoint;
-                currentStudent.animator.ResetPosition();
+                student.table = this;
+                student.transform.parent = studentStandingPoint;
+                student.transform.DOLocalMove(Vector3.zero, 0.5f);
+                student.transform.DOLocalRotate(Vector3.zero, 0.2f);
+                student.animator.ResetPosition();
+
+
                 currentStudent = null;
+
             }
         }
     }

@@ -48,13 +48,15 @@ public class DestinationManager : MonoBehaviour
                     {
                         // The agent has reached its destination or is very close to it
                         OnReachingDestination?.Invoke(student);
-                        RemoveAgentWithoutEvent(student);           
+                        RemoveAgentWithoutEvent(student);
                         if (agent.destination.x == GetNextRoomDoorDestination(student.phase).position.x)
                         {
                             OnReachingNextPhase?.Invoke(student);
-                            student.transform.rotation = Quaternion.identity;
                             agent.enabled = false;
                         }
+                        agent.enabled = false;
+                        student.transform.rotation = Quaternion.identity;
+
                     }
 
                 }
@@ -69,7 +71,7 @@ public class DestinationManager : MonoBehaviour
         {
             nextRoomDoor = enrollmentDoor;
         }
-        else if(phase== UniversityPhase.Examination)
+        else if (phase == UniversityPhase.Examination)
         {
             nextRoomDoor = examinationDoor;
         }
