@@ -9,7 +9,12 @@ public class DestinationManager : MonoBehaviour
 {
     public List<Student> agents; // List of agents to track
 
-    public Transform doorWorldTransform;
+    [SerializeField] Transform enrollmentDoor;
+    [SerializeField] Transform examinationDoor;
+    [SerializeField] Transform ceremonyDoor;
+
+    Transform nextRoomDoor;
+
     public static event Action<Student> OnReachingDestination;
     public static event Action<Student> OnReachingNextPhase;
 
@@ -43,8 +48,8 @@ public class DestinationManager : MonoBehaviour
                     {
                         // The agent has reached its destination or is very close to it
                         OnReachingDestination?.Invoke(student);
-                        RemoveAgentWithoutEvent(student);
-                        if (agent.destination.x == doorWorldTransform.position.x)
+                        RemoveAgentWithoutEvent(student);           
+                        if (agent.destination.x == GetNextRoomDoorDestination(student.phase).position.x)
                         {
                             OnReachingNextPhase?.Invoke(student);
                             student.transform.rotation = Quaternion.identity;
@@ -58,14 +63,30 @@ public class DestinationManager : MonoBehaviour
         }
     }
 
+    public Transform GetNextRoomDoorDestination(UniversityPhase phase)
+    {
+        if (phase == UniversityPhase.Enrollment)
+        {
+            nextRoomDoor = enrollmentDoor;
+        }
+        else if(phase== UniversityPhase.Examination)
+        {
+            nextRoomDoor = examinationDoor;
+        }
+        else if (phase == UniversityPhase.Ceremony)
+        {
+            nextRoomDoor = ceremonyDoor;
+        }
+        return nextRoomDoor;
+    }
     public void AddAgent(Student student)
     {
-        student.doorPos = doorWorldTransform.position;
+        student.doorPos = GetNextRoomDoorDestination(student.phase).position;
         agents.Add(student);
     }
     public void SetRoomDoor(Transform door)
     {
-        doorWorldTransform = door;
+        examinationDoor = door;
     }
     public void RemoveAgentWithoutEvent(Student student)
     {

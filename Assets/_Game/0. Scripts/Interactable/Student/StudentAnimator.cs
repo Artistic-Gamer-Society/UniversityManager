@@ -10,10 +10,8 @@ public class StudentAnimator : MonoBehaviour
     private void OnEnable()
     {
         Table.OnSelectingDesk += OnSelectingDeskWalk;
-        EnrollmentTable.OnSelectingDesk += OnSelectingDeskWalk;
         StudentMovement.OnReachingDesk += OnReachingDeskStopWalk;
         StudentLineManager.OnStartRearrangeing += OnStartRearrangingWalk;
-        StudentLineManager.OnCompleteRearranging += OnCompleteRearrangingStopWalk;
     }
 
 
@@ -21,9 +19,7 @@ public class StudentAnimator : MonoBehaviour
     {
         Table.OnSelectingDesk -= OnSelectingDeskWalk;
         EnrollmentTable.OnSelectingDesk -= OnSelectingDeskWalk;
-        StudentMovement.OnReachingDesk -= OnReachingDeskStopWalk;
         StudentLineManager.OnStartRearrangeing -= OnStartRearrangingWalk;
-        StudentLineManager.OnCompleteRearranging -= OnCompleteRearrangingStopWalk;
     }
     private void OnReachingDeskStopWalk(Student student)
     {

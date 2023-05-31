@@ -1,14 +1,12 @@
 using UnityEngine;
-using DG.Tweening;
-using UnityEngine.Events;
-using UnityEngine.AI;
-using System;
 
 public class EnrollmentTable : Table
 {    
     private void OnMouseDown()
     {
         base.OnSelectTable();
+        Debug.Log("EnrollmentTable: is" + name, gameObject);
+
     }
     private void OnEnable()
     {

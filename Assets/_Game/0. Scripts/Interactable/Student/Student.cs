@@ -24,7 +24,6 @@ public class Student : MonoBehaviour
 
 
     public bool isReadyToChangePhase;
-
     [Button("Get Component References")]
     private void GetComponentReferences()
     {
@@ -58,6 +57,10 @@ public class Student : MonoBehaviour
             movement.MoveToDestination(this, doorPos);
             movement.navMeshAgent.speed += data.studentSpeedTowardsDoor;
             table.boxCollider.enabled = true;
+            if (phase == UniversityPhase.Enrollment)
+            {
+                Actions.OnStudentCeremony?.Invoke(this,100);
+            }
         }
     }
     private void MakeReadyForNextPhase(Student obj)
@@ -75,7 +78,10 @@ public class Student : MonoBehaviour
     {
         int _phase = (int)phase;
         _phase++;
-
+        if (_phase > 2)
+        {
+            _phase = 0;
+        }
         return (UniversityPhase)_phase;
     }
     void MoveToNextRoom()

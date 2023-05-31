@@ -68,7 +68,7 @@ public class RoomsManager : MonoBehaviour
         }
         else if (currentLineManager == ceremonyLineManager)
         {
-            return null; // No new line manager
+            return enrollmentLineManager; // No new line manager
         }
 
         return null;

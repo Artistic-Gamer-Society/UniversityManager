@@ -18,22 +18,23 @@ public class StudentMovement : MonoBehaviour
     private void OnEnable()
     {
         Table.OnSelectingDesk += MoveToDestination;
-        EnrollmentTable.OnSelectingDesk += MoveToDestination;
         DestinationManager.OnReachingDestination += OnReachingDestinationPoint;
     }
     private void OnDisable()
     {
         Table.OnSelectingDesk -= MoveToDestination;
-        EnrollmentTable.OnSelectingDesk -= MoveToDestination;
         DestinationManager.OnReachingDestination -= OnReachingDestinationPoint;
     }
 
     public void MoveToDestination(Student student, Vector3 destination)
     {
-        student.movement.navMeshAgent.SetDestination(destination);
-        student.transform.LookAt(destination);
-        enabled = true;
-        navMeshAgent.enabled = true;
+        if (student.movement == this)
+        {
+            student.movement.navMeshAgent.SetDestination(destination);
+            student.transform.LookAt(destination);
+            student.enabled = true;
+            student.movement.navMeshAgent.enabled = true;
+        }
     }
     public void OnReachingDestinationPoint(Student student)
     {
@@ -43,23 +44,16 @@ public class StudentMovement : MonoBehaviour
             {
                 case UniversityPhase.Enrollment:
                     OnReachingDesk?.Invoke(student);
-                    Debug.Log("Phase: is" + student.phase, student.gameObject);
                     break;
                 case UniversityPhase.Examination:
-                    Debug.Log("Phase: is" + student.phase, student.gameObject);
+                    OnReachingDesk?.Invoke(student);
                     break;
                 case UniversityPhase.Ceremony:
-                    Debug.Log("Phase: is" + student.phase, student.gameObject);
+                    OnReachingDesk?.Invoke(student);
                     break;
                 default:
                     break;
             }
         }
     }
-
-    public void StopMovement()
-    {
-        navMeshAgent.isStopped = true;
-    }
-
 }

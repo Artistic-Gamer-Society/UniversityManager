@@ -20,10 +20,6 @@ public class StudentLineManager : MonoBehaviour
     /// Walk
     /// </summary>
     public static event Action<Student> OnStartRearrangeing;
-    /// <summary>
-    /// StopWalk
-    /// </summary>
-    public static event Action<Student> OnCompleteRearranging;
     public enum Axis
     {
         X,
@@ -39,12 +35,10 @@ public class StudentLineManager : MonoBehaviour
     {
         RearrangeStudents();
         Table.OnSelectingDesk += RemoveStudent;
-        EnrollmentTable.OnSelectingDesk += RemoveStudent;
     }
     private void OnDestroy()
     {
         Table.OnSelectingDesk -= RemoveStudent;
-        EnrollmentTable.OnSelectingDesk -= RemoveStudent;
     }
     public void AddStudent(Student student)
     {
@@ -55,6 +49,7 @@ public class StudentLineManager : MonoBehaviour
 
     public void RemoveStudent(Student student, Vector3 tablePos)
     {
+
         students.Remove(student);
         student.transform.SetParent(null); // Remove student object from the StudentLineManager's children
         student.StopRearranging();

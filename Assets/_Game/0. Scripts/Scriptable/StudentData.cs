@@ -1,6 +1,7 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "StudentData", menuName = "ScriptableObjects/StudentData", order = 1)]
@@ -16,8 +17,9 @@ public class StudentData : ScriptableObject
         Material studentMaterial = student.skinMeshRenderer.sharedMaterial; // Get the material of the student
         Material materialInstance = new Material(studentMaterial); // Create a new material instance
 
+        materialInstance.SetFloat("_OutlineSize", 0);
         switch (studentPhase)
-        {
+        {            
             case (UniversityPhase.Enrollment):
                 materialInstance.SetColor("_AlbedoColor", material[0].albedoColor);
                 break;

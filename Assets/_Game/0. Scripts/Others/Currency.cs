@@ -1,12 +1,12 @@
 using UnityEngine;
 using TMPro;
+using Sirenix.OdinInspector;
 
 public class Currency : MonoBehaviour
 {
     public int playerMoney = 0;
     public TextMeshProUGUI moneyText;
     private static Currency instance;
-
     private void Awake()
     {
         if (instance == null)
@@ -23,15 +23,22 @@ public class Currency : MonoBehaviour
     {
         UpdateMoneyText();
     }
-
+    private void OnEnable()
+    {
+        Actions.OnStudentCeremony += AddMoney;
+    }
+    private void OnDisable()
+    {
+        Actions.OnStudentCeremony -= AddMoney;
+    }
     public static Currency GetInstance()
     {
         return instance;
     }
-
-    public void AddMoney(int amount)
+    [Button]
+    public void AddMoney(Student student, int amount)
     {
-        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly(moneyText,playerMoney, playerMoney - amount));
+        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly(moneyText,playerMoney, playerMoney + amount));
         playerMoney += amount;
     }
 

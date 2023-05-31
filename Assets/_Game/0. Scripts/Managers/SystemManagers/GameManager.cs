@@ -53,6 +53,8 @@ public static class Actions
     /// - Prepare a new selected student in Selection Manager
     /// </summary>
     public static Action<Student> OnStudentSelection;
+    public static Action<Student,int> OnStudentCeremony;
+
     public static Action<Student> OnStudentSelectionCancel;
 
     public static Func<Student, Student> GetStudentAtTable;

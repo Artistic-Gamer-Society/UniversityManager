@@ -12,10 +12,17 @@ public class SelectionManager : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
+        UIManager.GetInstance().examination.btn.onClick.AddListener(ResetSelection);
+        UIManager.GetInstance().enrollment.btn.onClick.AddListener(ResetSelection);
+        UIManager.GetInstance().ceremony.btn.onClick.AddListener(ResetSelection);
+
     }
     private void OnDisable()
     {
         Actions.OnStudentSelection -= SetSelectedStudent;
+        UIManager.GetInstance().examination.btn.onClick.RemoveListener(ResetSelection);
+        UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(ResetSelection);
+        UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(ResetSelection);
     }
     private void SetSelectedStudent(Student obj)
     {
@@ -31,6 +38,15 @@ public class SelectionManager : MonoBehaviour
         selectedStudent.movement.enabled = true;
         selectedStudent.movement.navMeshAgent.enabled = true;
         StudentData.SetOutline(60, selectedStudent);
+    }
+    private void ResetSelection()
+    {
+        if (selectedStudent != null)
+        {
+            selectedStudent.ResetStudentDefaultState();
+            StudentData.SetOutline(0, selectedStudent);
+            selectedStudent = null;
+        }
     }
 }
 #region Commented

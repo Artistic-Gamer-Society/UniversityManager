@@ -35,8 +35,6 @@ public class UIManager : MonoBehaviour
                 examinationAnim.enabled = true;
             });
         }
-
-
     }
     private void OnDisable()
     {
