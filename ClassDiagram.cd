@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EnrollmentTable" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAAAAAACAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\EnrollmentTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ExamTable" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAAAAAACAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\ExamTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Table" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAGCAAAAAAAAAEAAAACAAAgAAAAABAAAEAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\ITable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BRCAGAAAAAAEAABAAAgAAEBAI4kAAlAIKAgUQAAACEI=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\Student\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentAnimator" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BARACAAACAACAAAAgAAAAAAAAAAAIAAIAAAAgAAACAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\Student\StudentAnimator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentMovement" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAIAAACCQAACEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\Student\StudentMovement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnlockableItem" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAABACAAAAAAQQAAIAgAAAAAAAACIAAAAAAAAQA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\UnlockableItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnlockableItemParent" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAACAAAAAAAAAAAAAACAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Interactable\UnlockableItemParent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DestinationManager" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAoAiAAAQIACAAAACABAAgAAAAoAAAAAACAiAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\DestinationManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomsManager" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABACAAAAQAAAEAAAQAAAAAAAAIQAIAQAAACAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\RoomsManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentLineManager" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCAAAAAAoAAAAAAEAAAAAAAAAAgAAAAIEwAACCEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\StudentLineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="2.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Actions" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgBAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SelectionManager" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAACAAAAAAAAgIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\SelectionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAgAAAgABAAAAAAAAABABBAAEIAAAIAAAACEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VFXManager" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAoAAAAAAAAAABAAAAIAAAAAAAACEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\VFXManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Currency" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgIAACAAAAACAAABAAAABIDAAAAIAAAAAACACEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Others\Currency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RadialProgressBar" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAEAACERCAQAAAAAAAAAIAgAAAABAiEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Others\RadialProgressBar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameConfig" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAJCAAAAgAACAAAAAAAAIIAAAAACCABAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Scriptable\GameConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StudentData" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEAIAABBAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Scriptable\StudentData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TransformExtensions" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Utility\ExtentionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridManager" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAABAAgIAAgAAAAAACAAAAAAAAEA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Utility\GridManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextSmoothUpdater" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Utility\TextSmoothUpdater.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="RoomDoor" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="UnlockTableVFX" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACCAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\VFXManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="CoinsVFX" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACCAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\VFXManager.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ThemeMaterial" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAACAAAgAAAgAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Scriptable\GameConfig.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="UniversityPhase" Collapsed="true">
+    <Position X="5.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\_Game\0. Scripts\Managers\SystemManagers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

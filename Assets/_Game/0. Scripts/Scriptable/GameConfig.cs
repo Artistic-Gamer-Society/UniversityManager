@@ -4,6 +4,12 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// I Am not Using It In This Game, 
+/// But I Put It Here Because When I Will Extend The Game I Will Probably
+/// Use It.
+/// </summary>
 [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObjects/GameConfig", order = 1)]
 public class GameConfig : ScriptableObject
 {

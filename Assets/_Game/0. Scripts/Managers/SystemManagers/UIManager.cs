@@ -1,6 +1,5 @@
 using DG.Tweening;
 using System;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ public class UIManager : MonoBehaviour
 
     private const string EnablePhase2= "EnableExamination";
 
+    #region Unity CallBacks
     private void Awake()
     {
         if (instance == null)
@@ -40,6 +40,11 @@ public class UIManager : MonoBehaviour
     {
         DestinationManager.OnReachingNextPhase -= EnableExmination;
     }
+    #endregion
+    public static UIManager GetInstance()
+    {
+        return instance;
+    }
     public void EnableExmination(Student student)
     {
         if (!PlayerPrefs.HasKey(EnablePhase2))
@@ -48,10 +53,6 @@ public class UIManager : MonoBehaviour
             PlayerPrefs.SetInt(EnablePhase2, 1);
             PlayerPrefs.Save();
         }
-    }
-    public static UIManager GetInstance()
-    {
-        return instance;
     }
     public void Retry()
     {
@@ -63,10 +64,5 @@ public struct RoomDoor
 {
     public GameObject door;
     public Button btn;
-
-    public void DisableDoor(GameObject door)
-    {
-
-    }
 }
 

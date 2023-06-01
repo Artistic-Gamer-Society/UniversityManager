@@ -2,13 +2,17 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// - One Selected. Disable Its Collider 
-/// - Drag
-/// - At Destination - At Cancel
+/// - It Is Specific That We Don't Need To Use 3 Fingers At A Time
+/// - In short We Have One Thing Selected At A Time
+/// - I didn't To Track The Table Because That Is Independant From Core Game Loop
+/// - I Track Selected Student And Reset Previously Selected Student
+/// - And For Student It Still Only Track The Student Which Are Not Ready
+/// To Change The Phase
 /// </summary>
 public class SelectionManager : MonoBehaviour
 {
     internal static Student selectedStudent;
+    #region Unity Callbacks
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
@@ -24,6 +28,7 @@ public class SelectionManager : MonoBehaviour
         UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(ResetSelection);
         UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(ResetSelection);
     }
+    #endregion
     private void SetSelectedStudent(Student obj)
     {
         if (obj.isReadyToChangePhase)

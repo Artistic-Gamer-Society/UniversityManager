@@ -1,12 +1,10 @@
 using UnityEngine;
 
-public class EnrollmentTable : Table
-{    
+public class ExamTable : Table
+{
     private void OnMouseDown()
     {
         base.OnSelectTable();
-        Debug.Log("EnrollmentTable: is" + name, gameObject);
-
     }
     private void OnEnable()
     {
@@ -16,4 +14,5 @@ public class EnrollmentTable : Table
     {
         StudentMovement.OnReachingDesk -= base.StartProcess;
     }
+ 
 }

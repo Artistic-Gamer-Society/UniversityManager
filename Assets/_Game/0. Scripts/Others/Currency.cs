@@ -2,6 +2,10 @@ using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 
+/// <summary>
+/// Not Limited To Just Coins/Cash
+/// It Can Be Anything
+/// /// </summary>
 public class Currency : MonoBehaviour
 {
     public int playerMoney = 200;
@@ -10,6 +14,7 @@ public class Currency : MonoBehaviour
 
     private const string PlayerMoneyKey = "PlayerMoney";
 
+    #region Unity Callbacks
     private void Awake()
     {
         if (instance == null)
@@ -37,6 +42,7 @@ public class Currency : MonoBehaviour
     {
         Actions.OnStudentCeremony -= AddMoney;
     }
+    #endregion
 
     public static Currency GetInstance()
     {

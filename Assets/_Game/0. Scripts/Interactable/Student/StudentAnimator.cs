@@ -1,52 +1,39 @@
-using System;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class StudentAnimator : MonoBehaviour
 {
     [SerializeField]
     private Animator animator;
 
+    #region Unity Callbacks
     private void OnEnable()
     {
-        Table.OnSelectingDesk += OnSelectingDeskWalk;
-        StudentMovement.OnReachingDesk += OnReachingDeskStopWalk;
-        StudentLineManager.OnStartRearrangeing += OnStartRearrangingWalk;
+        Table.OnSelectingDesk += Walk;
+        StudentMovement.OnReachingDesk += StopWalk;
+        StudentLineManager.OnStartRearrangeing += Walk;
     }
-
-
     private void OnDisable()
     {
-        Table.OnSelectingDesk -= OnSelectingDeskWalk;
-        EnrollmentTable.OnSelectingDesk -= OnSelectingDeskWalk;
-        StudentLineManager.OnStartRearrangeing -= OnStartRearrangingWalk;
+        Table.OnSelectingDesk -= Walk;
+        StudentMovement.OnReachingDesk -= StopWalk;
+        StudentLineManager.OnStartRearrangeing -= Walk;
     }
-    private void OnReachingDeskStopWalk(Student student)
-    {
-        if (student.animator == this)
-            StopWalking();
-    }
+    #endregion
 
-    private void OnSelectingDeskWalk(Student student, Vector3 arg2)
-    {
-        if (student.animator == this)
-            Walk();
-    }
-    private void OnCompleteRearrangingStopWalk(Student student)
-    {
-        if (student.animator == this)
-            StopWalking();
-    }
-
-    private void OnStartRearrangingWalk(Student student)
-    {
-        if (student.animator == this)
-            Walk();
-    }
     public void Walk()
     {
         // Play walk animation
         animator.SetBool("isRunning", true);
+    }
+    private void Walk(Student student)
+    {
+        if (student.animator == this)
+            Walk();
+    }
+    private void Walk(Student student, Vector3 arg2)
+    {
+        if (student.animator == this)
+            Walk();
     }
 
     public void StopWalking()
@@ -54,13 +41,13 @@ public class StudentAnimator : MonoBehaviour
         // Stop walk animation
         animator.SetBool("isRunning", false);
     }
+    private void StopWalk(Student student)
+    {
+        if (student.animator == this)
+            StopWalking();
+    }
     public void ResetPosition()
     {
         transform.localPosition = Vector3.up * transform.localPosition.y;
     }
-    public void ResetRotaion()
-    {
-        transform.localRotation = Quaternion.identity;
-    }
-    // Other animation methods
 }

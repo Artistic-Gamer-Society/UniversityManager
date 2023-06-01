@@ -1,6 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// - Add And Remove Student From One List To Another
+/// - It Checks Current Line And Respectively Move To The Next
+/// - For Future Updates:
+/// I can create a Array Of Lines. Because Currently Lines Are Limited And We Are Using If 
+/// But In Array We can Simple Use Next Element By Increamenting Index
+/// </summary>
 public class RoomsManager : MonoBehaviour
 {
     public StudentLineManager enrollmentLineManager;
@@ -30,7 +37,6 @@ public class RoomsManager : MonoBehaviour
         lineManager.AddStudent(student);
         studentLineDictionary.Add(student, lineManager);
     }
-
     public void RemoveStudent(Student student)
     {
         if (studentLineDictionary.ContainsKey(student))
@@ -54,8 +60,6 @@ public class RoomsManager : MonoBehaviour
             }
         }
     }
-
-
     private StudentLineManager GetNewLineManager(StudentLineManager currentLineManager)
     {
         if (currentLineManager == enrollmentLineManager)

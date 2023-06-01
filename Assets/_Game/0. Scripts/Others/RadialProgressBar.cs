@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.Plastic.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class RadialProgressBar : MonoBehaviour
@@ -14,8 +13,11 @@ public class RadialProgressBar : MonoBehaviour
     private Material material;
     private Coroutine fillCoroutine;
 
+    /// <summary>
+    /// Make Student Ready For Next Phase
+    /// </summary>
     public static event Action<Student> OnProgressComplete;
-    internal Student student;
+    internal Student student; // I Track Student To Make Him Ready For Next Phase
 
     private void Awake()
     {

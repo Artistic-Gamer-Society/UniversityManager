@@ -1,6 +1,5 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
 /// <summary>
 /// - phase: In which Student is.
@@ -21,7 +20,6 @@ public class Student : MonoBehaviour
     internal Vector3 doorPos;
 
     internal Table table;
-
 
     public bool isReadyToChangePhase;
     [Button("Get Component References")]
@@ -63,6 +61,10 @@ public class Student : MonoBehaviour
                 Actions.OnStudentCeremony?.Invoke(this, 100);
             }
         }
+        else
+        {
+            SelectCharacterAnimation();
+        }
     }
     private void MakeReadyForNextPhase(Student obj)
     {
@@ -73,7 +75,7 @@ public class Student : MonoBehaviour
             isReadyToChangePhase = true;
             data.UpdateStudentSkin(GetNextPhase(), obj);
             phase = GetNextPhase();
-            obj.transform.DOLocalRotate(Vector3.zero,0.2f);
+            obj.transform.DOLocalRotate(Vector3.zero, 0.2f);
         }
     }
     UniversityPhase GetNextPhase()
@@ -95,6 +97,7 @@ public class Student : MonoBehaviour
         //st.transform.localPosition = st.startPos;
         movement.enabled = false;
         capsuleCollider.enabled = true;
+        ResetSelectionAnimation();
     }
     //===============Tweens===============
     internal Tween RearrangeAnimation;
@@ -153,6 +156,49 @@ public class Student : MonoBehaviour
         if (SwtichLineAnimation != null && SwtichLineAnimation.IsActive())
         {
             SwtichLineAnimation.Kill();
+        }
+    }
+    private Tween SelectionAnimation;
+
+    public void SelectCharacterAnimation()
+    {
+        // Stop the previous pop-up tween if it exists
+        if (SelectionAnimation != null && SelectionAnimation.IsActive())
+        {
+            SelectionAnimation.Kill();
+        }
+
+        // Pop-up animation
+        SelectionAnimation = transform.DOScale(Vector3.one * 1.2f, 0.2f)
+            .SetEase(Ease.OutBack); // Use OutBack easing for a smooth pop-up effect
+    }
+    public void StopSelectionAnimation()
+    {
+        if (SelectionAnimation != null && SelectionAnimation.IsActive())
+        {
+            SelectionAnimation.Kill();
+        }
+    }
+    private Tween ResetSelectionTween;
+
+    public void ResetSelectionAnimation()
+    {
+        StopSelectionAnimation();
+        // Stop the previous pop-up tween if it exists
+        if (ResetSelectionTween != null && ResetSelectionTween.IsActive())
+        {
+            ResetSelectionTween.Kill();
+        }
+
+        // Pop-up animation
+        ResetSelectionTween = transform.DOScale(Vector3.one, 0.2f)
+            .SetEase(Ease.OutBack); // Use OutBack easing for a smooth pop-up effect
+    }
+    public void StopResetSelection()
+    {
+        if (ResetSelectionTween != null && ResetSelectionTween.IsActive())
+        {
+            ResetSelectionTween.Kill();
         }
     }
 

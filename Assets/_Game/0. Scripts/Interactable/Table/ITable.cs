@@ -28,6 +28,12 @@ public abstract class Table : MonoBehaviour
         boxCollider.enabled = false;
 
         progressBar.student = currentStudent; // It will be use to make student ready for next phase, whenever progress will be completed.         
+        currentStudent.ResetSelectionAnimation();
+
+        var _scale = transform.localScale;
+        transform.localScale *= 1.1f;
+        transform.DOScale(_scale, 0.2f).SetEase(Ease.InOutBack);
+
         SelectionManager.selectedStudent = null;
     }
     protected virtual void StartProcess(Student student)

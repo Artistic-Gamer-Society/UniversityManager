@@ -6,18 +6,16 @@ using UnityEngine;
 [DefaultExecutionOrder(9)]
 public class StudentLineManager : MonoBehaviour
 {
-    [SerializeField]
-    Transform startPoint;
-    private Vector3 startingPoint;
-    public float spacing;
-    public Axis axis;
-    public float rearrangeDuration = 1f;
+    [SerializeField] Transform startPoint;
+    [SerializeField] float spacing;
+    [SerializeField] float rearrangeDuration = 1f;
+    [SerializeField] Axis axis;
 
     public List<Student> students = new List<Student>();
-    public UniversityPhase phase;
 
+    private Vector3 startPos;
     /// <summary>
-    /// Walk
+    /// - Start Walk
     /// </summary>
     public static event Action<Student> OnStartRearrangeing;
     public enum Axis
@@ -26,10 +24,10 @@ public class StudentLineManager : MonoBehaviour
         Y,
         Z
     }
-
-    private void Awake()
+    #region Unity CallBacks
+    private void Start()
     {
-        startingPoint = startPoint.localPosition;
+        startPos = startPoint.localPosition;
     }
     private void OnEnable()
     {
@@ -40,16 +38,15 @@ public class StudentLineManager : MonoBehaviour
     {
         Table.OnSelectingDesk -= RemoveStudent;
     }
+    #endregion
     public void AddStudent(Student student)
     {
         students.Add(student);
         student.transform.SetParent(transform); // Set student object as a child of the StudentLineManager
         RearrangeStudents();
     }
-
     public void RemoveStudent(Student student, Vector3 tablePos)
     {
-
         students.Remove(student);
         student.transform.SetParent(null); // Remove student object from the StudentLineManager's children
         student.StopRearranging();
@@ -87,7 +84,7 @@ public class StudentLineManager : MonoBehaviour
     private Vector3 GetStudentLocalPosition(int index)
     {
         float offset = index * spacing;
-        Vector3 localPosition = startingPoint;
+        Vector3 localPosition = startPos;
 
         switch (axis)
         {

@@ -1,26 +1,16 @@
-using DG.Tweening;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Mostly I use It To Control Game States Related Thing But
+/// In This I Did'nt Use It Conventionally Because There Is No GameOver
+/// And LevelFail Sort Of Things
+/// </summary>
 public class GameManager : MonoBehaviour
 {
-    static GameManager instance;
     public UnityEvent OnFirstTimeGameStart;
-
-    public static GameManager Instance
-    {
-        get
-        {
-            if (instance == null)
-                instance = new GameManager();
-
-            return instance;
-        }
-    }
-    internal bool isPlay = false;
-
-
+    
     private const string FirstTimeKey = "FirstTime";
 
     private void Awake()
@@ -33,12 +23,10 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
-
     private void PerformFirstTimeAction()
     {
         OnFirstTimeGameStart?.Invoke();
     }
-
 }
 public enum UniversityPhase
 {
@@ -54,8 +42,6 @@ public static class Actions
     /// </summary>
     public static Action<Student> OnStudentSelection;
     public static Action<Student,int> OnStudentCeremony;
-
-    public static Action<Student> OnStudentSelectionCancel;
 
     public static Func<Student, Student> GetStudentAtTable;
 }
