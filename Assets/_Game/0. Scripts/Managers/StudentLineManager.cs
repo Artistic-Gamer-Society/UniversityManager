@@ -8,9 +8,10 @@ public class StudentLineManager : MonoBehaviour
 {
     [SerializeField] Transform startPoint;
     [SerializeField] float spacing;
-    [SerializeField] float rearrangeDuration = 1f;
+    [SerializeField] float rearrangeDuration = 1.5f;
     [SerializeField] Axis axis;
 
+    public UniversityPhase linePhase;
     public List<Student> students = new List<Student>();
 
     private Vector3 startPos;
@@ -34,7 +35,7 @@ public class StudentLineManager : MonoBehaviour
         RearrangeStudents();
         Table.OnSelectingDesk += RemoveStudent;
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         Table.OnSelectingDesk -= RemoveStudent;
     }

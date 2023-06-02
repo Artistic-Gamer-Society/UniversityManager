@@ -11,21 +11,21 @@ public class GridManager : MonoBehaviour
 
     private void CreateGrid()
     {
-        // Delete existing objects in the grid
-        //ClearGrid();
+        //Delete existing objects in the grid
+        ClearGrid();
 
-        //Vector3 startPosition = transform.position - new Vector3((columns - 1) * spacing / 2f, 0f, (rows - 1) * spacing / 2f);
+        Vector3 startPosition = transform.position - new Vector3((columns - 1) * spacing / 2f, 0f, (rows - 1) * spacing / 2f);
 
-        //for (int row = 0; row < rows; row++)
-        //{
-        //    for (int col = 0; col < columns; col++)
-        //    {
-        //        Vector3 spawnPosition = startPosition + new Vector3(col * spacing, 0f, row * spacing);
-        //        GameObject newObject = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-        //        newObject.transform.position = spawnPosition;
-        //        newObject.transform.parent = transform;
-        //    }
-        //}
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < columns; col++)
+            {
+                Vector3 spawnPosition = startPosition + new Vector3(col * spacing, 0f, row * spacing);
+                GameObject newObject = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
+                newObject.transform.position = spawnPosition;
+                newObject.transform.parent = transform;
+            }
+        }
     }
 
     private void ClearGrid()

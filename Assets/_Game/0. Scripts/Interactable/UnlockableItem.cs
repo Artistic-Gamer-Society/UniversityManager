@@ -10,6 +10,7 @@ public class UnlockableItem : MonoBehaviour
     public string itemKey; // Unique key to identify the unlockable item
 
     [SerializeField] GameObject itemToUnlock;
+    public GameObject nextToUnlock;
     public static event Action<Vector3> OnUnlockItem;
 
     private void Start()
@@ -36,13 +37,17 @@ public class UnlockableItem : MonoBehaviour
 
     private void UnlockItem()
     {
-        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly(costText, itemCost, 0));
+        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("$", costText, itemCost, 0,TextEffect.None));
         itemCost = 0;
         var _scale = itemToUnlock.transform.localScale;
         itemToUnlock.transform.localScale = Vector3.zero;
         itemToUnlock.SetActive(true);
         itemToUnlock.transform.DOScale(_scale, 0.2f).SetEase(Ease.InOutBack);
         gameObject.SetActive(false);
+        if (nextToUnlock != null)
+        {
+            nextToUnlock.SetActive(true);
+        }
     }
 
     private void CheckUnlockStatus()
@@ -53,7 +58,6 @@ public class UnlockableItem : MonoBehaviour
             UnlockItem();
         }
     }
-
     private void SaveUnlockStatus()
     {
         // Save the unlock status of the item

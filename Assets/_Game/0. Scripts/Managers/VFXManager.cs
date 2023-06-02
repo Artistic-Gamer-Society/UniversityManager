@@ -23,6 +23,11 @@ public class VFXManager : MonoBehaviour
             Destroy(this);
         }
     }
+    private void Start()
+    {
+        coins.currentIndex= 0;
+        unlockTable.currentIndex= 0;
+    }
     private void OnEnable()
     {
         UnlockableItem.OnUnlockItem += unlockTable.Play_Paricles;
@@ -39,8 +44,8 @@ public class VFXManager : MonoBehaviour
 public struct UnlockTableVFX
 {
     public List<ParticleSystem> _particles;
-
-    int currentIndex;
+    [ReadOnly]
+    public int currentIndex;
     public void Play_Paricles(Vector3 contactPos)
     {
         if (currentIndex < _particles.Count)
@@ -67,7 +72,8 @@ public struct UnlockTableVFX
 public struct CoinsVFX
 {
     public List<ParticleSystem> _particles;
-    int currentIndex;
+    [ReadOnly]
+    public int currentIndex;
     public void Play_Paricles(Student student, int num)
     {
         var contactPos = student.transform.position;

@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
     public RoomDoor enrollment, examination, ceremony;
     public Animator examinationAnim;
+    public Button spawnerButton;
+
     private static UIManager instance;
 
     private const string EnablePhase2= "EnableExamination";
@@ -29,7 +32,6 @@ public class UIManager : MonoBehaviour
         DestinationManager.OnReachingNextPhase += EnableExmination;
         if (PlayerPrefs.HasKey(EnablePhase2))
         {
-
             DOVirtual.DelayedCall(1, () =>
             {
                 examinationAnim.enabled = true;
@@ -64,5 +66,11 @@ public struct RoomDoor
 {
     public GameObject door;
     public Button btn;
+}
+[Serializable]
+public struct SpawnerButton
+{
+    public Button btn;
+    public TextMeshProUGUI text;
 }
 

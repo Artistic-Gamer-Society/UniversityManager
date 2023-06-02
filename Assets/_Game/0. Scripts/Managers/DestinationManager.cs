@@ -67,9 +67,7 @@ public class DestinationManager : MonoBehaviour
                         student.transform.rotation = Quaternion.identity;
 
                     }
-
                 }
-
             }
         }
     }

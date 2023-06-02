@@ -22,6 +22,7 @@ public class Student : MonoBehaviour
     internal Table table;
 
     public bool isReadyToChangePhase;
+
     [Button("Get Component References")]
     private void GetComponentReferences()
     {

@@ -52,14 +52,14 @@ public class Currency : MonoBehaviour
     [Button]
     public void AddMoney(Student student, int amount)
     {
-        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly(moneyText, playerMoney, playerMoney + amount));
+        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("$",moneyText, playerMoney, playerMoney + amount, TextEffect.None));
         playerMoney += amount;
         SavePlayerMoney(); // Save the updated player's money to PlayerPrefs
     }
 
     public void SubtractMoney(int amount)
     {
-        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly(moneyText, playerMoney, playerMoney - amount));
+        StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("$", moneyText, playerMoney, playerMoney - amount,TextEffect.None));
         playerMoney -= amount;
         SavePlayerMoney(); // Save the updated player's money to PlayerPrefs
     }

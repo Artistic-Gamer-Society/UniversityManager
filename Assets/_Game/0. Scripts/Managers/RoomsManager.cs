@@ -8,6 +8,7 @@ using UnityEngine;
 /// I can create a Array Of Lines. Because Currently Lines Are Limited And We Are Using If 
 /// But In Array We can Simple Use Next Element By Increamenting Index
 /// </summary>
+[DefaultExecutionOrder(10)]
 public class RoomsManager : MonoBehaviour
 {
     public StudentLineManager enrollmentLineManager;
@@ -19,11 +20,13 @@ public class RoomsManager : MonoBehaviour
     private void OnEnable()
     {
         DestinationManager.OnReachingNextPhase += RemoveStudent;
+        Spawner.OnStudentSpawn += AddStudent;
+
     }
     private void OnDisable()
     {
         DestinationManager.OnReachingNextPhase -= RemoveStudent;
-
+        Spawner.OnStudentSpawn -= AddStudent;
     }
     private void Start()
     {

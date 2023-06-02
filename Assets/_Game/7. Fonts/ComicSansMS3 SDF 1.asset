@@ -57,11 +57,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: ComicSansMS3 SDF
+  m_Name: ComicSansMS3 SDF 1
   m_EditorClassIdentifier: 
-  hashCode: -1808769928
+  hashCode: 1639536233
   material: {fileID: 2888982262348712200}
-  materialHashCode: 14741464
+  materialHashCode: -104127959
   m_Version: 1.1.0
   m_SourceFontFileGUID: a69b2dd964c48334082faff0c4401e1b
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: a69b2dd964c48334082faff0c4401e1b, type: 3}
@@ -1177,7 +1177,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.178
+    - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
