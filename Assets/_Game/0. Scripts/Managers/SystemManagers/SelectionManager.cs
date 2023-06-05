@@ -16,7 +16,9 @@ public class SelectionManager : MonoBehaviour
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
-        UIManager.GetInstance().examination.btn.onClick.AddListener(ResetSelection);
+
+        UIManager.GetInstance().examinationRight.btn.onClick.AddListener(ResetSelection);
+        UIManager.GetInstance().examinationLeft.btn.onClick.AddListener(ResetSelection);
         UIManager.GetInstance().enrollment.btn.onClick.AddListener(ResetSelection);
         UIManager.GetInstance().ceremony.btn.onClick.AddListener(ResetSelection);
 
@@ -24,7 +26,9 @@ public class SelectionManager : MonoBehaviour
     private void OnDisable()
     {
         Actions.OnStudentSelection -= SetSelectedStudent;
-        UIManager.GetInstance().examination.btn.onClick.RemoveListener(ResetSelection);
+
+        UIManager.GetInstance().examinationRight.btn.onClick.RemoveListener(ResetSelection);
+        UIManager.GetInstance().examinationLeft.btn.onClick.RemoveListener(ResetSelection);
         UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(ResetSelection);
         UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(ResetSelection);
     }

@@ -59,6 +59,8 @@ public class Student : MonoBehaviour
             table.boxCollider.enabled = true;
             if (phase == UniversityPhase.Enrollment)
             {
+
+                Debug.Log("Student: is" + this,gameObject);
                 Actions.OnStudentCeremony?.Invoke(this, 100);
             }
         }

@@ -7,13 +7,13 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public RoomDoor enrollment, examination, ceremony;
+    public RoomDoor enrollment, examinationLeft, examinationRight, ceremony;
     public Animator examinationAnim;
     public Button spawnerButton;
 
     private static UIManager instance;
 
-    private const string EnablePhase2= "EnableExamination";
+    private const string EnablePhase2 = "EnableExamination";
 
     #region Unity CallBacks
     private void Awake()

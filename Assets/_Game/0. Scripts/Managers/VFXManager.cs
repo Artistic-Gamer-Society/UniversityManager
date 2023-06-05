@@ -5,28 +5,16 @@ using UnityEngine;
 
 public class VFXManager : MonoBehaviour
 {
-    public static VFXManager instance;
     [BoxGroup("Table")]
     public UnlockTableVFX unlockTable;
     [BoxGroup("On Student Passout")]
     public CoinsVFX coins;
 
     #region Unity Callbacks
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
     private void Start()
     {
-        coins.currentIndex= 0;
-        unlockTable.currentIndex= 0;
+        coins.currentIndex = 0;
+        unlockTable.currentIndex = 0;
     }
     private void OnEnable()
     {
@@ -48,19 +36,22 @@ public struct UnlockTableVFX
     public int currentIndex;
     public void Play_Paricles(Vector3 contactPos)
     {
-        if (currentIndex < _particles.Count)
+        if (_particles[currentIndex] != null)
         {
-            _particles[currentIndex].transform.position = contactPos;
+            if (currentIndex < _particles.Count)
+            {
+                _particles[currentIndex].transform.position = contactPos;
 
-            _particles[currentIndex].Play();
+                _particles[currentIndex].Play();
+            }
+            else
+            {
+                currentIndex = 0;
+                _particles[currentIndex].transform.position = contactPos;
+                _particles[currentIndex].Play();
+            }
+            currentIndex++;
         }
-        else
-        {
-            currentIndex = 0;
-            _particles[currentIndex].transform.position = contactPos;
-            _particles[currentIndex].Play();
-        }
-        currentIndex++;
     }
 }
 /// <summary>
@@ -77,18 +68,21 @@ public struct CoinsVFX
     public void Play_Paricles(Student student, int num)
     {
         var contactPos = student.transform.position;
-        if (currentIndex < _particles.Count)
+        if (_particles[currentIndex] != null)
         {
-            _particles[currentIndex].transform.position = contactPos;
+            if (currentIndex < _particles.Count)
+            {
+                _particles[currentIndex].transform.position = contactPos;
 
-            _particles[currentIndex].Play();
+                _particles[currentIndex].Play();
+            }
+            else
+            {
+                currentIndex = 0;
+                _particles[currentIndex].transform.position = contactPos;
+                _particles[currentIndex].Play();
+            }
+            currentIndex++;
         }
-        else
-        {
-            currentIndex = 0;
-            _particles[currentIndex].transform.position = contactPos;
-            _particles[currentIndex].Play();
-        }
-        currentIndex++;
     }
 }

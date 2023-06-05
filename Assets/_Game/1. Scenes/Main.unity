@@ -172,14 +172,17 @@ MonoBehaviour:
   enrollment:
     door: {fileID: 811246334}
     btn: {fileID: 349372257}
-  examination:
-    door: {fileID: 811246334}
+  examinationLeft:
+    door: {fileID: 269142659}
+    btn: {fileID: 1584142090}
+  examinationRight:
+    door: {fileID: 1294931026}
     btn: {fileID: 377332403}
   ceremony:
     door: {fileID: 1795643664}
     btn: {fileID: 2076618410}
   examinationAnim: {fileID: 1294931028}
-  spawnerButton: {fileID: 0}
+  spawnerButton: {fileID: 80473811}
 --- !u!1 &53747595
 GameObject:
   m_ObjectHideFlags: 0
@@ -5248,7 +5251,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.49
+  m_fontSize: 46.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
