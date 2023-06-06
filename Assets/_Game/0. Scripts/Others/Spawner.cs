@@ -57,6 +57,8 @@ public class Spawner : MonoBehaviour
             currency.SubtractMoney(spawnerData.GetCurrentRequiredMoney());
             StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("Student\n$", moneyRequiredToSpawnText,
                 spawnerData.GetCurrentRequiredMoney(), spawnerData.CalculateMoneyNeededToSpawn(), TextEffect.None));
+
+            student.SaveUnlockStatus();
         }
 
 

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// - phase: In which Student is.
@@ -30,8 +31,7 @@ public class Student : MonoBehaviour
     public bool isReadyToChangePhase;
     public bool isSwitchingLine;
 
-    private const string StudentPhaseKey = "StudentPhase";
-    private const string StudentActiveKey = "StudentActive";
+    public string studentKey;
 
     public static event Action<Student> OnStudentStart;
 
@@ -48,10 +48,15 @@ public class Student : MonoBehaviour
     {
         startPos = transform.localPosition;
         StudentData.SetOutline(0, this);
+        if (PlayerPrefs.HasKey(studentKey))
+        {
+            gameObject.SetActive(true);
+        }
     }
     private void Start()
     {
         OnStudentStart?.Invoke(this);
+
     }
     private void OnEnable()
     {
@@ -120,32 +125,11 @@ public class Student : MonoBehaviour
         ResetSelectionAnimation();
     }
     //======== Data Persistance
-
-    private void SaveStudentData()
+    public void SaveUnlockStatus()
     {
-        // Save the student's phase and active state in PlayerPrefs
-        PlayerPrefs.SetInt(StudentPhaseKey, (int)phase);
-        PlayerPrefs.SetInt(StudentActiveKey, isActive ? 1 : 0);
+        PlayerPrefs.SetInt(studentKey, 1);
         PlayerPrefs.Save();
     }
-
-    private void LoadStudentData()
-    {
-        // Load the student's phase and active state from PlayerPrefs
-        if (PlayerPrefs.HasKey(StudentPhaseKey))
-        {
-            phase = (UniversityPhase)PlayerPrefs.GetInt(StudentPhaseKey);
-        }
-
-        if (PlayerPrefs.HasKey(StudentActiveKey))
-        {
-            isActive = PlayerPrefs.GetInt(StudentActiveKey) != 0;
-            gameObject.SetActive(isActive);
-        }
-    }
-
-
-
     #region Animations
     //===============Tweens===============
     internal Tween RearrangeAnimation;

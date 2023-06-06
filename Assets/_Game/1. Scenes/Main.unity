@@ -1101,6 +1101,7 @@ GameObject:
   - component: {fileID: 309981143}
   - component: {fileID: 309981144}
   - component: {fileID: 309981145}
+  - component: {fileID: 309981146}
   m_Layer: 0
   m_Name: StudentEnrollmentLine
   m_TagString: Untagged
@@ -1176,6 +1177,25 @@ MonoBehaviour:
   lineToSpawnIn: {fileID: 309981144}
   spawnerData: {fileID: 11400000, guid: 3e558e639654a874db0a28ec8401cf53, type: 2}
   gameConfig: {fileID: 11400000, guid: 59c8819c8a57f3040ba4ad3d550b8e68, type: 2}
+--- !u!114 &309981146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309981142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9780f305839c284ca4e7327dea6dc07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  students:
+  - {fileID: 2089535776}
+  - {fileID: 1635092994}
+  - {fileID: 1926420101}
+  - {fileID: 704832112}
+  - {fileID: 1004397521}
+  - {fileID: 1376577291}
 --- !u!1001 &338238006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1479,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.171}
   m_AnchorMax: {x: 0.3241111, y: 0.24360418}
-  m_AnchoredPosition: {x: -23.500122, y: 0.49987793}
+  m_AnchoredPosition: {x: -23.500122, y: 0.5}
   m_SizeDelta: {x: 50, y: 5.0000153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349372257
@@ -3073,6 +3093,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1890435817}
     - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_3 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: IndexInLine
       value: 3
       objectReference: {fileID: 0}
@@ -3294,6 +3318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 775422210}
   - component: {fileID: 775422211}
+  - component: {fileID: 775422212}
   m_Layer: 0
   m_Name: GameElements
   m_TagString: Untagged
@@ -3339,6 +3364,18 @@ MonoBehaviour:
   ceremonyLineManager: {fileID: 1469305880}
   spawner: {fileID: 309981145}
   gameConfig: {fileID: 11400000, guid: 59c8819c8a57f3040ba4ad3d550b8e68, type: 2}
+--- !u!114 &775422212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775422209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccae00bf11493fa44a63a489484a1af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &784748693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4215,6 +4252,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1890435817}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_4 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: IndexInLine
       value: 4
@@ -6491,8 +6532,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1890435817}
     - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_5 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: IndexInLine
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: StudentPhaseKey
+      value: StudentPhase1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: StudentActiveKey
+      value: StudentActive1
       objectReference: {fileID: 0}
     - target: {fileID: 8128700032319298726, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: m_Name
@@ -7012,7 +7065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.171}
   m_AnchorMax: {x: 0.3241111, y: 0.24360418}
-  m_AnchoredPosition: {x: -23.500122, y: 0.49987793}
+  m_AnchoredPosition: {x: -23.500122, y: 0.5}
   m_SizeDelta: {x: 50, y: 5.0000153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584142090
@@ -7476,6 +7529,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1890435817}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_1 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: IndexInLine
       value: 1
@@ -8905,6 +8962,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1890435817}
     - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_2 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: IndexInLine
       value: 2
       objectReference: {fileID: 0}
@@ -10180,6 +10241,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 1890435817}
+    - target: {fileID: 8128700032319298715, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
+      propertyPath: studentKey
+      value: 'StudentEnrollmentLine_0 '
+      objectReference: {fileID: 0}
     - target: {fileID: 8128700032319298726, guid: 008a58ebdf8528247a23c8de17354627, type: 3}
       propertyPath: m_Name
       value: Student

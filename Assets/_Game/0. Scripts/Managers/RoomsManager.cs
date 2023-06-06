@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
@@ -70,6 +71,7 @@ public class RoomsManager : MonoBehaviour
                 // 
                 spawner.studentPool.Add(student);
                 student.gameObject.SetActive(false);
+
                 studentLineDictionary.Remove(student);
             }
         }
@@ -104,5 +106,4 @@ public class RoomsManager : MonoBehaviour
                 break;
         }
     }
-
 }

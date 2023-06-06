@@ -12,6 +12,7 @@ public abstract class Table : MonoBehaviour
     public UniversityPhase tableType;
 
     private Student _currentStudent;
+    private string studentKey;
     public Student currentStudent
     {
         get { return _currentStudent; }
@@ -58,5 +59,34 @@ public abstract class Table : MonoBehaviour
 
             }
         }
+    }
+
+
+    //==========Data Save===================
+    private void AssignStudentToTable()
+    {
+        Student student = SelectionManager.selectedStudent;
+        if (student != null)
+        {
+            studentKey = Guid.NewGuid().ToString(); // Generate a unique key for the student
+            SaveStudentKey(student, studentKey);
+        }
+    }
+    private void SaveStudentKey(Student student, string key)
+    {
+        // Save the assigned key for the student
+        PlayerPrefs.SetString(key, student.gameObject.name);
+        PlayerPrefs.Save();
+    }
+    private Student FindStudentByKey(string key)
+    {
+        // Find the student using the key
+        string studentName = PlayerPrefs.GetString(key);
+        GameObject studentObject = GameObject.Find(studentName);
+        if (studentObject != null)
+        {
+            return studentObject.GetComponent<Student>();
+        }
+        return null;
     }
 }
