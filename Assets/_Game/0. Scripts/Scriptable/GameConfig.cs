@@ -13,30 +13,30 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "GameConfig", menuName = "ScriptableObjects/GameConfig", order = 1)]
 public class GameConfig : ScriptableObject
 {
-    public float selectedStudentHeight;
-    [BoxGroup("Control Settings")]
-    public float bottomBounday, topBoundary, leftBoundary, rightBoundary;
-    [BoxGroup("Control Settings")]
-    public float movementSmoothing;
-
-    public List<ThemeMaterial> themes;
-    public Material boarderMaterial;
-    public Material groundMaterial;
-
-    public static int numOfStudentsInRooms;
-    public void Init()
+    public int numOfStudentsInRooms;
+    [SerializeField] int maxStudent;
+    [ShowInInspector]
+    public int maxStudentCapacity
     {
-        int themeIndex = UnityEngine.Random.Range(0, themes.Count - 1);
-        SetScene(themeIndex);
+        get { return maxStudent; }
     }
-  
-    public void SetScene(int themeIndex)
-    {
-        boarderMaterial.color = themes[themeIndex].boarderColor;
-        boarderMaterial.SetColor("_HColor", themes[themeIndex].highlightColor);
-        boarderMaterial.SetColor("_SColor", themes[themeIndex].shadowColor);
-        groundMaterial.color = themes[themeIndex].backgroundColor;
-    }
+    //public List<ThemeMaterial> themes;
+    //public Material boarderMaterial;
+    //public Material groundMaterial;
+
+    //public void Init()
+    //{
+    //    int themeIndex = UnityEngine.Random.Range(0, themes.Count - 1);
+    //    SetScene(themeIndex);
+    //}
+
+    //public void SetScene(int themeIndex)
+    //{
+    //    boarderMaterial.color = themes[themeIndex].boarderColor;
+    //    boarderMaterial.SetColor("_HColor", themes[themeIndex].highlightColor);
+    //    boarderMaterial.SetColor("_SColor", themes[themeIndex].shadowColor);
+    //    groundMaterial.color = themes[themeIndex].backgroundColor;
+    //}
 }
 
 [Serializable]

@@ -12,16 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e741f3ce00617054b9007f99961fe8ae, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: 
-  selectedStudentHeight: 15
-  bottomBounday: 0
-  topBoundary: 0
-  leftBoundary: 0
-  rightBoundary: 0
-  movementSmoothing: 0
-  themes:
-  - backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-    boarderColor: {r: 0, g: 0, b: 0, a: 0}
-    highlightColor: {r: 0, g: 0, b: 0, a: 0}
-    shadowColor: {r: 0, g: 0, b: 0, a: 0}
-  boarderMaterial: {fileID: 2100000, guid: c6612aa7fed435945b5a29b61d7f1af4, type: 2}
-  groundMaterial: {fileID: 2100000, guid: f357ef13394802944b4b60eb3df660d2, type: 2}
+  numOfStudentsInRooms: 0
+  maxStudent: 6

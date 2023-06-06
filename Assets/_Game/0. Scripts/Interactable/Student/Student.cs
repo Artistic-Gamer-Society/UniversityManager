@@ -9,6 +9,7 @@ using UnityEngine;
 public class Student : MonoBehaviour
 {
     public UniversityPhase phase = UniversityPhase.Enrollment;
+    public bool isActive = true;
     [SerializeField] CapsuleCollider capsuleCollider;
 
     public SkinnedMeshRenderer skinMeshRenderer;
@@ -28,6 +29,9 @@ public class Student : MonoBehaviour
 
     public bool isReadyToChangePhase;
     public bool isSwitchingLine;
+
+    private const string StudentPhaseKey = "StudentPhase";
+    private const string StudentActiveKey = "StudentActive";
 
     public static event Action<Student> OnStudentStart;
 
@@ -114,6 +118,30 @@ public class Student : MonoBehaviour
         movement.enabled = false;
         capsuleCollider.enabled = true;
         ResetSelectionAnimation();
+    }
+    //======== Data Persistance
+
+    private void SaveStudentData()
+    {
+        // Save the student's phase and active state in PlayerPrefs
+        PlayerPrefs.SetInt(StudentPhaseKey, (int)phase);
+        PlayerPrefs.SetInt(StudentActiveKey, isActive ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadStudentData()
+    {
+        // Load the student's phase and active state from PlayerPrefs
+        if (PlayerPrefs.HasKey(StudentPhaseKey))
+        {
+            phase = (UniversityPhase)PlayerPrefs.GetInt(StudentPhaseKey);
+        }
+
+        if (PlayerPrefs.HasKey(StudentActiveKey))
+        {
+            isActive = PlayerPrefs.GetInt(StudentActiveKey) != 0;
+            gameObject.SetActive(isActive);
+        }
     }
 
 

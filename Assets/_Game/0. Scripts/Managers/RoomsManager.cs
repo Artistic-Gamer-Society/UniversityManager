@@ -21,17 +21,14 @@ public class RoomsManager : MonoBehaviour
 
     private Dictionary<Student, StudentLineManager> studentLineDictionary = new Dictionary<Student, StudentLineManager>();
 
-    int numOfStudentsInRooms;
-    [SerializeField] int maxStudentCapacity;
-
-    public static event Action OnReachingMaxStudent;
+    [SerializeField] GameConfig gameConfig;
     private void Start()
     {
         foreach (var st in enrollmentLineManager.students)
         {
             studentLineDictionary.Add(st, enrollmentLineManager);
         }
-        numOfStudentsInRooms = studentLineDictionary.Count;
+        gameConfig.numOfStudentsInRooms = studentLineDictionary.Count;
     }
     private void OnEnable()
     {
@@ -49,9 +46,7 @@ public class RoomsManager : MonoBehaviour
     {
         lineManager.AddStudent(student);
         studentLineDictionary.Add(student, lineManager);
-        numOfStudentsInRooms = studentLineDictionary.Count;
-
-        CheckMaxStudentCapacity();
+        gameConfig.numOfStudentsInRooms = studentLineDictionary.Count;
     }
     public void RemoveStudent(Student student)
     {
@@ -94,15 +89,6 @@ public class RoomsManager : MonoBehaviour
             return null; // No new line manager
         }
     }
-
-    public void CheckMaxStudentCapacity()
-    {
-        if (maxStudentCapacity <= numOfStudentsInRooms)
-        {
-            OnReachingMaxStudent?.Invoke();
-        }
-    }
-
     private void SetStudentCurrentLineManager(Student student)
     {
         switch (student.phase)

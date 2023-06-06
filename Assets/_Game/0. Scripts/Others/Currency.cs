@@ -43,7 +43,6 @@ public class Currency : MonoBehaviour
         Actions.OnStudentCeremony -= AddMoney;
     }
     #endregion
-
     public static Currency GetInstance()
     {
         return instance;
