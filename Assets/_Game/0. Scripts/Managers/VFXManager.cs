@@ -29,29 +29,35 @@ public class VFXManager : MonoBehaviour
     #endregion
 }
 [Serializable]
-public struct UnlockTableVFX
+public class UnlockTableVFX
 {
-    public List<ParticleSystem> _particles;
+    public List<ParticleSystem> _particles=new List<ParticleSystem>();
     [ReadOnly]
     public int currentIndex;
     public void Play_Paricles(Vector3 contactPos)
     {
-        if (_particles[currentIndex] != null)
+        if (currentIndex < _particles.Count)
         {
-            if (currentIndex < _particles.Count)
+            if (_particles[currentIndex] != null)
             {
                 _particles[currentIndex].transform.position = contactPos;
-
                 _particles[currentIndex].Play();
             }
             else
             {
-                currentIndex = 0;
+                Debug.LogWarning("Check: " + currentIndex);
+            }
+        }
+        else
+        {
+            currentIndex = 0;
+            if (_particles[currentIndex] != null)
+            {
                 _particles[currentIndex].transform.position = contactPos;
                 _particles[currentIndex].Play();
             }
-            currentIndex++;
         }
+        currentIndex++;
     }
 }
 /// <summary>
@@ -60,7 +66,7 @@ public struct UnlockTableVFX
 /// Like I Can Change Play_Particles WithOut Worring Too Much
 /// </summary>
 [Serializable]
-public struct CoinsVFX
+public class CoinsVFX
 {
     public List<ParticleSystem> _particles;
     [ReadOnly]
@@ -68,21 +74,25 @@ public struct CoinsVFX
     public void Play_Paricles(Student student, int num)
     {
         var contactPos = student.transform.position;
-        if (_particles[currentIndex] != null)
+
+        if (currentIndex < _particles.Count)
         {
-            if (currentIndex < _particles.Count)
+            if (_particles[currentIndex] != null)
             {
                 _particles[currentIndex].transform.position = contactPos;
 
                 _particles[currentIndex].Play();
             }
-            else
+        }
+        else
+        {
+            currentIndex = 0;
+            if (_particles[currentIndex] != null)
             {
-                currentIndex = 0;
                 _particles[currentIndex].transform.position = contactPos;
                 _particles[currentIndex].Play();
             }
-            currentIndex++;
         }
+        currentIndex++;
     }
 }

@@ -12,25 +12,26 @@ using UnityEngine;
 public class SelectionManager : MonoBehaviour
 {
     internal static Student selectedStudent;
+
     #region Unity Callbacks
     private void OnEnable()
     {
         Actions.OnStudentSelection += SetSelectedStudent;
 
-        UIManager.GetInstance().examinationRight.btn.onClick.AddListener(ResetSelection);
-        UIManager.GetInstance().examinationLeft.btn.onClick.AddListener(ResetSelection);
-        UIManager.GetInstance().enrollment.btn.onClick.AddListener(ResetSelection);
-        UIManager.GetInstance().ceremony.btn.onClick.AddListener(ResetSelection);
+        UIManager.GetInstance().examinationRight.btn.onClick.AddListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().examinationLeft.btn.onClick.AddListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().enrollment.btn.onClick.AddListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().ceremony.btn.onClick.AddListener(ResetSelectionOnBtn);
 
     }
     private void OnDisable()
     {
         Actions.OnStudentSelection -= SetSelectedStudent;
 
-        UIManager.GetInstance().examinationRight.btn.onClick.RemoveListener(ResetSelection);
-        UIManager.GetInstance().examinationLeft.btn.onClick.RemoveListener(ResetSelection);
-        UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(ResetSelection);
-        UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(ResetSelection);
+        UIManager.GetInstance().examinationRight.btn.onClick.RemoveListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().examinationLeft.btn.onClick.RemoveListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(ResetSelectionOnBtn);
+        UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(ResetSelectionOnBtn);
     }
     #endregion
     private void SetSelectedStudent(Student obj)
@@ -48,7 +49,7 @@ public class SelectionManager : MonoBehaviour
         selectedStudent.movement.navMeshAgent.enabled = true;
         StudentData.SetOutline(60, selectedStudent);
     }
-    private void ResetSelection()
+    private void ResetSelectionOnBtn()
     {
         if (selectedStudent != null)
         {

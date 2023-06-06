@@ -8,8 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Seat
-  m_Shader: {fileID: 4800000, guid: c25f048f92690b04ca679b2ddb06ac06, type: 3}
-  m_ValidKeywords: []
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ValidKeywords:
+  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords:
   - _MK_ARTISTIC_PROJECTION_SCREEN_SPACE
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
@@ -19,7 +20,6 @@ Material:
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
   - _RECEIVESHADOWS_ON
-  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   - _WRAPPEDLIGHTING_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -182,7 +182,7 @@ Material:
     - _LightBands: 4
     - _LightBandsScale: 0.5
     - _LightThreshold: 0.5
-    - _Metallic: 0
+    - _Metallic: 0.528
     - _Mode: 0
     - _NormalMapIntensity: 1
     - _OcclusionStrength: 1
@@ -233,7 +233,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AlbedoColor: {r: 0.43396226, g: 0.24727657, b: 0.24727657, a: 1}
-    - _Color: {r: 0.57254905, g: 0.49803925, b: 0.4666667, a: 1}
+    - _Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 1}
     - _DissolveBorderColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}

@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     private void OnEnable()
     {
         DestinationManager.OnReachingNextPhase += EnableExmination;
+        RoomsManager.OnReachingMaxStudent += MakeSpawnBtnNonInteractable;
+
         if (PlayerPrefs.HasKey(EnablePhase2))
         {
             DOVirtual.DelayedCall(1, () =>
@@ -41,6 +43,8 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         DestinationManager.OnReachingNextPhase -= EnableExmination;
+        RoomsManager.OnReachingMaxStudent -= MakeSpawnBtnNonInteractable;
+
     }
     #endregion
     public static UIManager GetInstance()
@@ -59,6 +63,11 @@ public class UIManager : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(0);
+    }
+    private void MakeSpawnBtnNonInteractable()
+    {
+        spawnerButton.interactable = false;
+        spawnerButton.gameObject.SetActive(false);
     }
 }
 [Serializable]

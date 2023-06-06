@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,30 +17,41 @@ public class RoomsManager : MonoBehaviour
     public StudentLineManager examinationLineManager;
     public StudentLineManager ceremonyLineManager;
 
+    public Spawner spawner;
+
     private Dictionary<Student, StudentLineManager> studentLineDictionary = new Dictionary<Student, StudentLineManager>();
 
-    private void OnEnable()
-    {
-        DestinationManager.OnReachingNextPhase += RemoveStudent;
-        Spawner.OnStudentSpawn += AddStudent;
+    int numOfStudentsInRooms;
+    [SerializeField] int maxStudentCapacity;
 
-    }
-    private void OnDisable()
-    {
-        DestinationManager.OnReachingNextPhase -= RemoveStudent;
-        Spawner.OnStudentSpawn -= AddStudent;
-    }
+    public static event Action OnReachingMaxStudent;
     private void Start()
     {
         foreach (var st in enrollmentLineManager.students)
         {
             studentLineDictionary.Add(st, enrollmentLineManager);
         }
+        numOfStudentsInRooms = studentLineDictionary.Count;
+    }
+    private void OnEnable()
+    {
+        DestinationManager.OnReachingNextPhase += RemoveStudent;
+        Spawner.OnStudentSpawn += AddStudent;
+        Student.OnStudentStart += SetStudentCurrentLineManager;
+    }
+    private void OnDisable()
+    {
+        DestinationManager.OnReachingNextPhase -= RemoveStudent;
+        Spawner.OnStudentSpawn -= AddStudent;
+        Student.OnStudentStart -= SetStudentCurrentLineManager;
     }
     public void AddStudent(Student student, StudentLineManager lineManager)
     {
         lineManager.AddStudent(student);
         studentLineDictionary.Add(student, lineManager);
+        numOfStudentsInRooms = studentLineDictionary.Count;
+
+        CheckMaxStudentCapacity();
     }
     public void RemoveStudent(Student student)
     {
@@ -59,6 +72,9 @@ public class RoomsManager : MonoBehaviour
             else
             {
                 // If there is no new line manager, remove the student from the dictionary
+                // 
+                spawner.studentPool.Add(student);
+                student.gameObject.SetActive(false);
                 studentLineDictionary.Remove(student);
             }
         }
@@ -73,11 +89,34 @@ public class RoomsManager : MonoBehaviour
         {
             return ceremonyLineManager;
         }
-        else if (currentLineManager == ceremonyLineManager)
+        else
         {
-            return enrollmentLineManager; // No new line manager
+            return null; // No new line manager
         }
-
-        return null;
     }
+
+    public void CheckMaxStudentCapacity()
+    {
+        if (maxStudentCapacity <= numOfStudentsInRooms)
+        {
+            OnReachingMaxStudent?.Invoke();
+        }
+    }
+
+    private void SetStudentCurrentLineManager(Student student)
+    {
+        switch (student.phase)
+        {
+            case UniversityPhase.Enrollment:
+                student.studentCurrentLine = enrollmentLineManager;
+                break;
+            case UniversityPhase.Examination:
+                student.studentCurrentLine = examinationLineManager;
+                break;
+            case UniversityPhase.Ceremony:
+                student.studentCurrentLine = ceremonyLineManager;
+                break;
+        }
+    }
+
 }

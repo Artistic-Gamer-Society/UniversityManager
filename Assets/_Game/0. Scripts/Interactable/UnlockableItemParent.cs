@@ -15,7 +15,6 @@ public class UnlockableItemParent : MonoBehaviour
         AssignNextUnlockableItemParents();
         AssignItemKeys();
     }
-
     private void CollectUnlockableItems()
     {
         unlockableItems.AddRange(GetComponentsInChildren<UnlockableItem>(true));

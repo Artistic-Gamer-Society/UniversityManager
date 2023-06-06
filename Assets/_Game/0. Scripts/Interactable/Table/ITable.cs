@@ -9,6 +9,8 @@ public abstract class Table : MonoBehaviour
     [SerializeField] protected Transform studentStandingPoint;
     [SerializeField] protected RadialProgressBar progressBar;
 
+    public UniversityPhase tableType;
+
     private Student _currentStudent;
     public Student currentStudent
     {
@@ -25,6 +27,8 @@ public abstract class Table : MonoBehaviour
 
         OnSelectingDesk?.Invoke(currentStudent, transform.position);
         OnSelectingDesk1?.Invoke(currentStudent);
+        currentStudent.table = this;
+
         boxCollider.enabled = false;
 
         progressBar.student = currentStudent; // It will be use to make student ready for next phase, whenever progress will be completed.         
@@ -44,7 +48,6 @@ public abstract class Table : MonoBehaviour
             {
                 student.movement.navMeshAgent.enabled = false;
                 progressBar.gameObject.SetActive(true);
-                student.table = this;
                 student.transform.parent = studentStandingPoint;
                 student.transform.DOLocalMove(Vector3.zero, 0.5f);
                 student.transform.DOLocalRotate(Vector3.zero, 0.2f);

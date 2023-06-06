@@ -28,7 +28,7 @@ public class SpawnerData : ScriptableObject
 
     private void IncrementRequiredMoney()
     {
-        currentRequiredMoney = Mathf.RoundToInt(baseRequiredMoney * moneyMultiplier);
+        currentRequiredMoney = Mathf.RoundToInt(currentRequiredMoney * moneyMultiplier);
         SaveRequiredMoney();
     }
 

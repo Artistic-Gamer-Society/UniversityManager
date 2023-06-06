@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using System;
 using UnityEngine;
 /// <summary>
 /// - phase: In which Student is.
@@ -19,9 +20,17 @@ public class Student : MonoBehaviour
     internal Vector3 startPos;
     internal Vector3 doorPos;
 
+    public StudentLineManager studentCurrentLine;
+    public int IndexInLine;
+
+
     internal Table table;
 
     public bool isReadyToChangePhase;
+    public bool isSwitchingLine;
+
+    public static event Action<Student> OnStudentStart;
+
 
     [Button("Get Component References")]
     private void GetComponentReferences()
@@ -35,6 +44,10 @@ public class Student : MonoBehaviour
     {
         startPos = transform.localPosition;
         StudentData.SetOutline(0, this);
+    }
+    private void Start()
+    {
+        OnStudentStart?.Invoke(this);
     }
     private void OnEnable()
     {
@@ -51,6 +64,7 @@ public class Student : MonoBehaviour
         movement.navMeshAgent.speed = data.studentSpeed;
         if (isReadyToChangePhase)
         {
+            isSwitchingLine = true;
             movement.navMeshAgent.enabled = true;
             transform.parent = null;
             animator.Walk();
@@ -59,8 +73,6 @@ public class Student : MonoBehaviour
             table.boxCollider.enabled = true;
             if (phase == UniversityPhase.Enrollment)
             {
-
-                Debug.Log("Student: is" + this,gameObject);
                 Actions.OnStudentCeremony?.Invoke(this, 100);
             }
         }
@@ -91,9 +103,10 @@ public class Student : MonoBehaviour
         }
         return (UniversityPhase)_phase;
     }
-    void MoveToNextRoom()
+    public void InstantMoveOnSwitchingRoom()
     {
-
+        if (isSwitchingLine)
+            transform.localPosition = doorPos - Vector3.left * 0.2f;
     }
     public void ResetStudentDefaultState()
     {
@@ -102,22 +115,24 @@ public class Student : MonoBehaviour
         capsuleCollider.enabled = true;
         ResetSelectionAnimation();
     }
+
+
+
+    #region Animations
     //===============Tweens===============
     internal Tween RearrangeAnimation;
 
     public void StartRearranging(Vector3 targetPosition, float duration)
     {
-        if (!isSwitchingLine)
-        {
-            StopSwitchLineTween();
-            StopRearranging();
-            RearrangeAnimation = transform.DOLocalMove(targetPosition, duration)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                    animator.StopWalking();
-                });
-        }
+        StopSwitchLineTween();
+        StopRearranging();
+        RearrangeAnimation = transform.DOLocalMove(targetPosition, duration)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                transform.localPosition = targetPosition;
+                animator.StopWalking();
+            });
     }
 
     public void StopRearranging()
@@ -129,14 +144,13 @@ public class Student : MonoBehaviour
     }
     private Tween SwtichLineAnimation;
 
-    [SerializeField] bool isSwitchingLine;
-    public void SwitchLineAnimation(Vector3[] pathPoints, float duration, Student st)
+    bool switchLineAnimationCheck = false;
+    public void SwitchLineAnimation(Vector3[] pathPoints, float duration, Student st, Vector3 targetPos)
     {
         // Stop the previous tween if it exists
-        isSwitchingLine = true;
-        if (isSwitchingLine)
+        if (!switchLineAnimationCheck)
         {
-
+            switchLineAnimationCheck = true;
             isReadyToChangePhase = false;
             StopSwitchLineTween();
             StopRearranging();
@@ -145,9 +159,10 @@ public class Student : MonoBehaviour
                 .SetEase(Ease.Linear)
                 .OnComplete(() =>
                 {
-                    animator.StopWalking();
                     capsuleCollider.enabled = true;
-                    isSwitchingLine = false;
+                    switchLineAnimationCheck = false;
+                    StartRearranging(targetPos, 1f);
+                    movement.navMeshAgent.enabled = true;
                     // Animation completed
                     // Add any additional logic here
                 });
@@ -204,5 +219,5 @@ public class Student : MonoBehaviour
             ResetSelectionTween.Kill();
         }
     }
-
+    #endregion
 }

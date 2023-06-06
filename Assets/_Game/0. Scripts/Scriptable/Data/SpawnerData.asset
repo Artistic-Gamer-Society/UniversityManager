@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SpawnerData
   m_EditorClassIdentifier: 
   baseRequiredMoney: 200
-  moneyMultiplier: 1.5
+  moneyMultiplier: 2
+  currentRequiredMoney: 2096

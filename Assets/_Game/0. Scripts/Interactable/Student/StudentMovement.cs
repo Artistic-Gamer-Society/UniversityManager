@@ -35,24 +35,25 @@ public class StudentMovement : MonoBehaviour
             student.enabled = true;
             student.movement.navMeshAgent.enabled = true;
         }
-    }
+    }   
     public void OnReachingDestinationPoint(Student student)
     {
         if (student.movement == this)
         {
-            switch (student.phase)
+            if (!student.isReadyToChangePhase)
             {
-                case UniversityPhase.Enrollment:
-                    OnReachingDesk?.Invoke(student);
-                    break;
-                case UniversityPhase.Examination:
-                    OnReachingDesk?.Invoke(student);
-                    break;
-                case UniversityPhase.Ceremony:
-                    OnReachingDesk?.Invoke(student);
-                    break;
-                default:
-                    break;
+                switch (student.phase)
+                {
+                    case UniversityPhase.Enrollment:
+                        OnReachingDesk?.Invoke(student);
+                        break;
+                    case UniversityPhase.Examination:
+                        OnReachingDesk?.Invoke(student);
+                        break;
+                    case UniversityPhase.Ceremony:
+                        OnReachingDesk?.Invoke(student);
+                        break;
+                }
             }
         }
     }

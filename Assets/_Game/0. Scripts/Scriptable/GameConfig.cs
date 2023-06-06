@@ -22,6 +22,8 @@ public class GameConfig : ScriptableObject
     public List<ThemeMaterial> themes;
     public Material boarderMaterial;
     public Material groundMaterial;
+
+    public static int numOfStudentsInRooms;
     public void Init()
     {
         int themeIndex = UnityEngine.Random.Range(0, themes.Count - 1);

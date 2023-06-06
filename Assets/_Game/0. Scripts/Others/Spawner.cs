@@ -10,14 +10,17 @@ public class Spawner : MonoBehaviour
     public Transform spawnPoint;
     public int poolSize = 10;
     public Button spawnButton;
-    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI moneyRequiredToSpawnText;
 
-
-    private List<Student> studentPool = new List<Student>();
+    public List<Student> studentPool = new List<Student>();
     public static event Action<Student, StudentLineManager> OnStudentSpawn;
     [SerializeField] StudentLineManager lineToSpawnIn;
     [SerializeField] SpawnerData spawnerData;
 
+
+    private const string RemovedStudentsKey = "RemovedStudents";
+
+    private List<int> removedStudents = new List<int>();
     private void Start()
     {
         // Create the student pool       
@@ -29,7 +32,26 @@ public class Spawner : MonoBehaviour
             studentPool.Add(student);
         }
         spawnerData.LoadRequiredMoney();
-        moneyText.text = "Student\n$" + spawnerData.GetCurrentRequiredMoney();
+        moneyRequiredToSpawnText.text = "Student\n$" + spawnerData.GetCurrentRequiredMoney();
+
+        if (PlayerPrefs.HasKey(RemovedStudentsKey))
+        {
+            string removedStudentsData = PlayerPrefs.GetString(RemovedStudentsKey);
+            removedStudents = JsonUtility.FromJson<List<int>>(removedStudentsData);
+
+            // Enable the removed students
+            foreach (int studentIndex in removedStudents)
+            {
+
+                Debug.Log("ok: is");
+                if (studentIndex < studentPool.Count)
+                {
+                    Student student = studentPool[studentIndex];
+                    student.gameObject.SetActive(true);
+                    // Set the position or any other properties as needed
+                }
+            }
+        }
     }
     private void OnEnable()
     {
@@ -42,6 +64,7 @@ public class Spawner : MonoBehaviour
     private void SpawnStudent()
     {
         Currency currency = Currency.GetInstance(); // To Unlock Item You Need Money So Here It Is Dependent.
+       
         // Check if there are students available in the pool
         if (studentPool.Count > 0 && spawnerData.GetCurrentRequiredMoney() <= currency.playerMoney)
         {
@@ -54,12 +77,15 @@ public class Spawner : MonoBehaviour
             student.transform.position = spawnPoint.position;
             OnStudentSpawn?.Invoke(student, lineToSpawnIn);
             currency.SubtractMoney(spawnerData.GetCurrentRequiredMoney());
-            StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("Student\n$",moneyText,
+            StartCoroutine(TextSmoothUpdater.UpdateMoneyTextSmoothly("Student\n$",moneyRequiredToSpawnText,
                 spawnerData.GetCurrentRequiredMoney(), spawnerData.CalculateMoneyNeededToSpawn(),TextEffect.None));
+
+            removedStudents.Add(studentPool.Count - 1);
+            SaveRemovedStudents();
         }
 
-        // Disable the spawn button if there are no more students in the pool
-        spawnButton.interactable = studentPool.Count > 0;
+        //// Disable the spawn button if there are no more students in the pool
+        //spawnButton.interactable = studentPool.Count > 0;
     }
 
     private void ReturnStudentToPool(Student student)
@@ -73,5 +99,14 @@ public class Spawner : MonoBehaviour
 
         // Enable the spawn button
         spawnButton.interactable = true;
+        removedStudents.Add(studentPool.Count - 1);
+        SaveRemovedStudents();
+    }
+    private void SaveRemovedStudents()
+    {
+        // Serialize the list of removed students and store it in PlayerPrefs
+        string removedStudentsData = JsonUtility.ToJson(removedStudents);
+        PlayerPrefs.SetString(RemovedStudentsKey, removedStudentsData);
+        PlayerPrefs.Save();
     }
 }

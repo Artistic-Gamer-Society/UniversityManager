@@ -32,15 +32,25 @@ public class DestinationManager : MonoBehaviour
     private void Start()
     {
         // Initialize the list of agents (you can populate it through code or the Inspector)
-        agents = new List<Student>();
+        agents = new List<Student>();        
     }
     private void OnEnable()
     {
         Actions.OnStudentSelection += AddAgent;
+
+        UIManager.GetInstance().examinationRight.btn.onClick.AddListener(InstantMove);
+        UIManager.GetInstance().examinationLeft.btn.onClick.AddListener(InstantMove);
+        UIManager.GetInstance().enrollment.btn.onClick.AddListener(InstantMove);
+        UIManager.GetInstance().ceremony.btn.onClick.AddListener(InstantMove);
     }
     private void OnDisable()
     {
         Actions.OnStudentSelection -= AddAgent;
+
+        UIManager.GetInstance().examinationRight.btn.onClick.RemoveListener(InstantMove);
+        UIManager.GetInstance().examinationLeft.btn.onClick.RemoveListener(InstantMove);
+        UIManager.GetInstance().enrollment.btn.onClick.RemoveListener(InstantMove);
+        UIManager.GetInstance().ceremony.btn.onClick.RemoveListener(InstantMove);
     }
     private void FixedUpdate()
     {
@@ -60,12 +70,10 @@ public class DestinationManager : MonoBehaviour
                         RemoveAgentWithoutEvent(student);
                         if (agent.destination.x == GetNextRoomDoorDestination(student.phase).position.x)
                         {
-                            OnReachingNextPhase?.Invoke(student);
-                            agent.enabled = false;
+                            OnReachingNextPhase?.Invoke(student);    
                         }
                         agent.enabled = false;
                         student.transform.rotation = Quaternion.identity;
-
                     }
                 }
             }
@@ -101,4 +109,22 @@ public class DestinationManager : MonoBehaviour
     {
         agents.Remove(student);
     }
+
+    private void InstantMove()
+    {
+        for (int i = 0; i < agents.Count; i++)
+        {
+            Student student = agents[i];
+            var agent = student.movement.navMeshAgent;
+
+            if (agent.isActiveAndEnabled)
+            {
+                if (agent.hasPath)
+                {
+                    student.InstantMoveOnSwitchingRoom();
+                }
+            }
+        }
+    }
+
 }

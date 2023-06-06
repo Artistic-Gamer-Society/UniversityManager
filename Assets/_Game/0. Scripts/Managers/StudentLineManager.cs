@@ -32,7 +32,7 @@ public class StudentLineManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        RearrangeStudents();
+        RearrangeStudents(0);
         Table.OnSelectingDesk += RemoveStudent;
     }
     private void OnDisable()
@@ -44,27 +44,50 @@ public class StudentLineManager : MonoBehaviour
     {
         students.Add(student);
         student.transform.SetParent(transform); // Set student object as a child of the StudentLineManager
-        RearrangeStudents();
+
+        int studentIndex = students.Count - 1; // Index of the added student in the students list
+
+        // Update the IndexInLine property of the added student
+        student.IndexInLine = studentIndex;
+
+        RearrangeStudents(studentIndex);
     }
     public void RemoveStudent(Student student, Vector3 tablePos)
     {
-        students.Remove(student);
-        student.transform.SetParent(null); // Remove student object from the StudentLineManager's children
-        student.StopRearranging();
-        DOVirtual.DelayedCall(0.5f, () =>
-        {
-            RearrangeStudents();
-        });
+        int studentIndex = students.IndexOf(student); // Get the index of the student in the students list
 
-    }
-    private void RearrangeStudents()
-    {
-        for (int i = 0; i < students.Count; i++)
+        if (studentIndex >= 0)
         {
-            Vector3 targetPosition = GetStudentLocalPosition(i);
-            OnStartRearrangeing?.Invoke(students[i]);
+            students.Remove(student);
+            student.transform.SetParent(null); // Remove student object from the StudentLineManager's children
+            student.IndexInLine = -1;            
+            student.StopRearranging();
+
+            // Rearrange the remaining students
+            DOVirtual.DelayedCall(0.5f, () =>
+            {
+                RearrangeStudents(studentIndex);
+            });
+
+            // Update the indices of the remaining students after the removal
+            for (int i = studentIndex; i < students.Count; i++)
+            {
+                students[i].IndexInLine = i; // Update the IndexInLine property of each student
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Student not found in the students list: " + student.name);
+        }
+    }
+    private void RearrangeStudents(int startIndex)
+    {
+        for (int i = startIndex; i < students.Count; i++)
+        {
+            Vector3 targetPosition = GetTargetStudentLocalPosition(i);
             if (students[i].isReadyToChangePhase == false)
             {
+                OnStartRearrangeing?.Invoke(students[i]);
                 students[i].StartRearranging(targetPosition, rearrangeDuration);
                 students[i].startPos = targetPosition;
             }
@@ -73,16 +96,16 @@ public class StudentLineManager : MonoBehaviour
                 var pos = students[i].transform.localPosition;
                 Vector3[] positions = new Vector3[]
                 {
-                    new Vector3(pos.x, -5, -15),
-                    new Vector3(targetPosition.x, targetPosition.y, -15),
-                    targetPosition,
+                new Vector3(pos.x, -5, -15),
+                new Vector3(targetPosition.x, targetPosition.y, -10),             
                 };
-                students[i].SwitchLineAnimation(positions, 2, students[i]);
+                students[i].SwitchLineAnimation(positions, 0, students[i],targetPosition);
+
                 students[i].startPos = targetPosition;
             }
         }
     }
-    private Vector3 GetStudentLocalPosition(int index)
+    private Vector3 GetTargetStudentLocalPosition(int index)
     {
         float offset = index * spacing;
         Vector3 localPosition = startPos;
